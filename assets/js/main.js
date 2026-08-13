@@ -93,6 +93,49 @@ document.addEventListener("DOMContentLoaded", function () {
     el.textContent = new Date().getFullYear();
   });
 
+  // ---- Favicon: black background ----
+  (function(){
+    var canvas = document.createElement('canvas');
+    canvas.width = 32; canvas.height = 32;
+    var ctx = canvas.getContext('2d');
+    var img = new Image();
+    img.onload = function(){
+      ctx.fillStyle = '#000000';
+      ctx.fillRect(0,0,32,32);
+      ctx.drawImage(img,2,2,28,28);
+      var link = document.querySelector('link[rel="icon"]') || document.createElement('link');
+      link.rel = 'icon'; link.href = canvas.toDataURL();
+      document.head.appendChild(link);
+    };
+    img.src = 'assets/img/favicon.png';
+  })();
+
+  // ---- Global fade-in on scroll ----
+  if("IntersectionObserver" in window){
+    var fadeObserver = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add('fade-visible');
+          fadeObserver.unobserve(entry.target);
+        }
+      });
+    },{threshold:0.08});
+
+    var fadeSelectors = [
+      'section', '.feature-card', '.team-card', '.step-card',
+      '.prog-v2-card', '.testi-card-v2', '.contact-card',
+      '.contact-info-card', '.stat-bar', '.cta-band',
+      '.section-head', '.faq-item', '.page-banner',
+      '.syllabus-section', '.prog-item'
+    ];
+    document.querySelectorAll(fadeSelectors.join(',')).forEach(function(el){
+      if(!el.classList.contains('site-header') && !el.classList.contains('site-footer')){
+        el.classList.add('auto-fade');
+        fadeObserver.observe(el);
+      }
+    });
+  }
+
   // ---- Scrollspy: highlight active nav link based on section in view ----
   var navAnchors = Array.prototype.slice.call(document.querySelectorAll(".nav-links a[href^='#']"));
   var sections = navAnchors

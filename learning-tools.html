@@ -4,11 +4,91 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Learning Tools — Tutory English</title>
-<meta name="description" content="Kumpulan tools belajar Tutory English — IELTS Study Planner dan komunitas kelas untuk mendukung perjalanan belajarmu.">
+<meta name="description" content="Platform belajar IELTS Tutory English — mock test, latihan soal, dan track progress belajarmu dalam satu platform.">
 <link rel="icon" href="assets/img/favicon.png" type="image/png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css">
+<style>
+/* ===== PLANNING HERO ===== */
+.plan-hero{background:linear-gradient(160deg,#f0f4ff 0%,#e8f0fe 50%,#f5f0ff 100%);padding:80px 0 60px;text-align:center}
+.plan-hero .eyebrow-pill{display:inline-flex;align-items:center;gap:6px;background:#fff;border:1.5px solid #e2e8f0;border-radius:50px;padding:7px 16px;font-size:12.5px;font-weight:700;color:#2f61f6;margin-bottom:24px;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.plan-hero h1{font-size:clamp(28px,4vw,52px);font-weight:800;line-height:1.15;margin-bottom:16px;color:#0f172a}
+.plan-hero h1 span{color:#2f61f6}
+.plan-hero .lead{font-size:16px;color:#64748b;max-width:580px;margin:0 auto 32px;line-height:1.7}
+.plan-hero-cta{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+
+/* ===== STAT CARDS ===== */
+.plan-stats{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin-top:56px}
+.plan-stat-card{background:#fff;border:1.5px solid #e2e8f0;border-radius:16px;padding:18px 24px;display:flex;align-items:center;gap:14px;box-shadow:0 2px 10px rgba(0,0,0,.05);min-width:170px}
+.plan-stat-card .psc-icon{font-size:28px;line-height:1}
+.plan-stat-card .psc-num{font-size:18px;font-weight:800;color:#0f172a;line-height:1}
+.plan-stat-card .psc-lbl{font-size:12px;color:#64748b;margin-top:2px}
+
+/* ===== FEATURE TABS ===== */
+.plan-features{padding:72px 0;background:#fff}
+.plan-tab-nav{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-bottom:48px}
+.plan-tab-btn{background:#f1f5f9;border:none;border-radius:50px;padding:10px 18px;font-size:13.5px;font-weight:600;color:#64748b;cursor:pointer;transition:all .2s;font-family:inherit}
+.plan-tab-btn.active{background:#2f61f6;color:#fff;box-shadow:0 4px 14px rgba(47,97,246,.3)}
+.plan-tab-content{display:none}
+.plan-tab-content.active{display:flex;align-items:center;gap:56px;max-width:1000px;margin:0 auto}
+.plan-tab-text{flex:1}
+.plan-tab-text .tab-eyebrow{font-size:11px;font-weight:700;color:#2f61f6;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px}
+.plan-tab-text h3{font-size:clamp(22px,3vw,32px);font-weight:800;color:#0f172a;margin-bottom:12px;line-height:1.25}
+.plan-tab-text p{font-size:15px;color:#64748b;line-height:1.7;margin-bottom:20px}
+.plan-tab-text .feat-list{list-style:none;padding:0;margin:0 0 28px}
+.plan-tab-text .feat-list li{display:flex;align-items:flex-start;gap:10px;font-size:14.5px;color:#334155;margin-bottom:10px}
+.plan-tab-text .feat-list li::before{content:'✓';background:#e0e7ff;color:#2f61f6;border-radius:50%;width:20px;height:20px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;flex-shrink:0;margin-top:1px}
+.plan-tab-visual{flex:1;min-width:0}
+
+/* Browser mockup */
+.browser-mock{background:#fff;border-radius:16px;box-shadow:0 12px 48px rgba(0,0,0,.12);border:1.5px solid #e2e8f0;overflow:hidden}
+.browser-mock-bar{background:#f8f9fa;padding:10px 14px;display:flex;align-items:center;gap:8px;border-bottom:1px solid #e2e8f0}
+.bm-dot{width:11px;height:11px;border-radius:50%}
+.bm-url{flex:1;background:#fff;border:1px solid #e2e8f0;border-radius:6px;padding:4px 10px;font-size:11px;color:#94a3b8;margin:0 12px}
+.browser-mock-body{padding:20px;background:linear-gradient(160deg,#f8faff,#f0f4ff);min-height:220px}
+
+/* App UI mockups inside browser */
+.mock-card{background:#fff;border-radius:10px;padding:14px 16px;border:1px solid #e2e8f0;margin-bottom:10px;box-shadow:0 1px 4px rgba(0,0,0,.06)}
+.mock-card-title{font-size:12px;font-weight:700;color:#0f172a;margin-bottom:8px}
+.mock-bar-row{display:flex;align-items:center;gap:8px;margin-bottom:6px}
+.mock-bar-label{font-size:10px;color:#64748b;width:60px;flex-shrink:0}
+.mock-bar{flex:1;height:7px;background:#e2e8f0;border-radius:4px;overflow:hidden}
+.mock-bar-fill{height:100%;border-radius:4px}
+.mock-badge{display:inline-block;font-size:9px;font-weight:700;padding:2px 7px;border-radius:20px;margin-right:4px}
+.mock-score-row{display:flex;gap:8px;margin-top:8px}
+.mock-score-box{flex:1;background:#f0f4ff;border-radius:8px;padding:8px;text-align:center}
+.mock-score-box .sv{font-size:18px;font-weight:800;color:#2f61f6}
+.mock-score-box .sl{font-size:9px;color:#64748b}
+.mock-q{background:#f8faff;border-radius:8px;padding:10px 12px;border:1px solid #e8eeff;margin-bottom:6px}
+.mock-q .qt{font-size:10px;color:#64748b;margin-bottom:4px}
+.mock-q .qtext{font-size:11px;color:#0f172a;font-weight:600}
+.mock-opt{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}
+.mock-opt span{font-size:9px;padding:3px 8px;border-radius:20px;border:1px solid #e2e8f0;color:#475569}
+.mock-opt span.correct{background:#dcfce7;border-color:#86efac;color:#166534}
+
+/* ===== BENEFITS ===== */
+.plan-benefits{padding:60px 0;background:linear-gradient(160deg,#f0f4ff 0%,#f5f0ff 100%)}
+.benefits-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:40px}
+.benefit-card{background:#fff;border-radius:16px;padding:28px 24px;border:1.5px solid #e2e8f0;box-shadow:0 2px 10px rgba(0,0,0,.05)}
+.benefit-card .bc-icon{font-size:32px;margin-bottom:14px}
+.benefit-card h4{font-size:16px;font-weight:700;color:#0f172a;margin-bottom:8px}
+.benefit-card p{font-size:13.5px;color:#64748b;line-height:1.65;margin:0}
+
+/* ===== OTHER TOOLS ===== */
+.other-tools{padding:60px 0}
+
+@media(max-width:800px){
+  .plan-tab-content.active{flex-direction:column}
+  .plan-tab-visual{width:100%}
+  .benefits-grid{grid-template-columns:1fr}
+  .plan-stats{flex-direction:column;align-items:center}
+}
+@media(max-width:600px){
+  .benefits-grid{grid-template-columns:1fr 1fr}
+  .plan-hero-cta{flex-direction:column;align-items:center}
+}
+</style>
 </head>
 <body>
 
@@ -31,91 +111,298 @@
   </div>
 </header>
 
-<!-- ============ PAGE BANNER ============ -->
-<section class="page-banner">
+<!-- ============ PLANNING HERO ============ -->
+<section class="plan-hero">
   <div class="container">
-    <div class="breadcrumb"><a href="index.html">Home</a> / Learning Tools</div>
-    <h1>Learning Tools</h1>
-    <p>Kumpulan tools yang mendukung perjalanan belajarmu di Tutory English, dari rencana belajar sampai komunitas sesama murid.</p>
-  </div>
-</section>
-
-<!-- ============ TOOLS ============ -->
-<section>
-  <div class="container">
-    <div class="grid grid-2" style="max-width:880px;margin:0 auto;">
-
-      <div class="faq-item tool-card">
-        <button class="faq-q tool-q">
-          <span class="tool-q-main">
-            <span class="program-tile-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 3v3M16 3v3"/></svg></span>
-            <span class="tool-q-text">
-              <strong>IELTS Learning Schedule</strong>
-              <span class="tool-q-sub">Template planner Notion untuk jadwal belajar IELTS</span>
-            </span>
-          </span>
-          <span class="plus">+</span>
-        </button>
-        <div class="faq-a">
-          <div class="faq-a-inner">
-            <p><strong>Apa aja isinya:</strong></p>
-            <ul>
-              <li>Template planner Notion siap pakai — tinggal duplicate ke akunmu sendiri</li>
-              <li>Jadwal belajar terstruktur per skill: Listening, Reading, Writing, Speaking</li>
-              <li>Tampilan weekly &amp; daily view, lengkap dengan checklist progress harian</li>
-              <li>Bisa disesuaikan sendiri sesuai waktu luang dan target band score-mu</li>
-              <li>Akses lifetime — sekali beli, dipakai kapan saja</li>
-            </ul>
-            <a class="btn btn-primary" href="https://lynk.id/tutoryenglish/nnq16l2jeonm" target="_blank" rel="noopener">Beli &amp; Dapatkan Aksesnya →</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="faq-item tool-card">
-        <button class="faq-q tool-q">
-          <span class="tool-q-main">
-            <span class="program-tile-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 19c0-3 2.5-5 6-5s6 2 6 5"/><path d="M14.5 14.2c2.5.3 4.5 2 4.5 4.8"/></svg></span>
-            <span class="tool-q-text">
-              <strong>Komunitas Kelas Tutory</strong>
-              <span class="tool-q-sub">Grup diskusi sesama murid Tutory English</span>
-            </span>
-          </span>
-          <span class="plus">+</span>
-        </button>
-        <div class="faq-a">
-          <div class="faq-a-inner">
-            <p><strong>Apa aja isinya:</strong></p>
-            <ul>
-              <li>Grup eksklusif sesama murid Tutory English untuk diskusi &amp; sharing progress belajar</li>
-              <li>Tips &amp; trik belajar IELTS dari sesama member dan tutor</li>
-              <li>Update info kelas terbaru, promo, dan event dari Tutory English</li>
-              <li>Tempat tanya jawab seputar IELTS di luar jam kelas</li>
-            </ul>
-            <a class="btn btn-primary" href="https://lynk.id/shazzies_/d5p7o0w18gzk" target="_blank" rel="noopener">Beli &amp; Gabung Sekarang →</a>
-          </div>
-        </div>
-      </div>
-
+    <div class="eyebrow-pill">✨ Platform Belajar by Tutory English</div>
+    <h1>Belajar IELTS Lebih Cerdas.<br><span>Platform Planning Khusus Untukmu.</span></h1>
+    <p class="lead">Satu platform lengkap untuk persiapan IELTS — dari mock test, latihan soal harian, hingga tracking progress belajarmu. Gratis &amp; bisa diakses kapan saja.</p>
+    <div class="plan-hero-cta">
+      <a class="btn btn-primary" href="https://tutoryplanning.web.app/" target="_blank" rel="noopener" style="padding:14px 28px;font-size:15px;">Coba Sekarang →</a>
+      <a class="btn btn-outline" href="https://wa.me/6287762013051" target="_blank" rel="noopener" style="padding:14px 28px;font-size:15px;">Tanya Admin</a>
     </div>
-    <div class="note-box mt-40" style="max-width:880px;margin:40px auto 0;">
-      <strong>Catatan:</strong>
-      <ul>
-        <li>Klik kartu di atas untuk lihat detail isi tiap tools sebelum membeli. Pembelian &amp; akses dilakukan lewat Lynk.id.</li>
-        <li>Tools belajar lainnya akan terus ditambahkan di halaman ini.</li>
-      </ul>
+
+    <div class="plan-stats">
+      <div class="plan-stat-card">
+        <div class="psc-icon">🎯</div>
+        <div><div class="psc-num">4 Skills</div><div class="psc-lbl">Lengkap: L, R, W, S</div></div>
+      </div>
+      <div class="plan-stat-card">
+        <div class="psc-icon">📝</div>
+        <div><div class="psc-num">Mock Test</div><div class="psc-lbl">Simulasi IELTS penuh</div></div>
+      </div>
+      <div class="plan-stat-card">
+        <div class="psc-icon">📊</div>
+        <div><div class="psc-num">Progress</div><div class="psc-lbl">Tracking skor harian</div></div>
+      </div>
+      <div class="plan-stat-card">
+        <div class="psc-icon">⚡</div>
+        <div><div class="psc-num">Gratis</div><div class="psc-lbl">Akses penuh, no install</div></div>
+      </div>
     </div>
   </div>
 </section>
+
+<!-- ============ FEATURE TABS ============ -->
+<section class="plan-features">
+  <div class="container">
+    <div class="section-head" style="margin-bottom:0">
+      <span class="eyebrow">Fitur Lengkap</span>
+      <h2>Semua yang Kamu Butuhkan untuk IELTS</h2>
+      <p>Satu platform, semua tools — tidak perlu app tambahan.</p>
+    </div>
+
+    <div class="plan-tab-nav" style="margin-top:36px;">
+      <button class="plan-tab-btn active" data-ptab="mock">📝 Mock Test</button>
+      <button class="plan-tab-btn" data-ptab="reading">📖 Reading Practice</button>
+      <button class="plan-tab-btn" data-ptab="listening">🎧 Listening Practice</button>
+      <button class="plan-tab-btn" data-ptab="progress">📊 Progress Tracker</button>
+    </div>
+
+    <!-- Tab: Mock Test -->
+    <div class="plan-tab-content active" id="ptab-mock">
+      <div class="plan-tab-text">
+        <div class="tab-eyebrow">Simulasi Tes</div>
+        <h3>Mock Test IELTS Lengkap &amp; Terstruktur</h3>
+        <p>Latihan seperti tes IELTS asli — soal Listening dan Reading dengan format resmi, dikerjakan dalam kondisi timed dan dinilai otomatis.</p>
+        <ul class="feat-list">
+          <li>Format soal sesuai IELTS resmi (IDP &amp; British Council)</li>
+          <li>Timer otomatis untuk setiap sesi</li>
+          <li>Skor langsung setelah selesai mengerjakan</li>
+          <li>Review jawaban benar &amp; salah setelah submit</li>
+        </ul>
+        <a class="btn btn-primary" href="https://tutoryplanning.web.app/" target="_blank" rel="noopener">Mulai Mock Test →</a>
+      </div>
+      <div class="plan-tab-visual">
+        <div class="browser-mock">
+          <div class="browser-mock-bar">
+            <div class="bm-dot" style="background:#ff5f57"></div>
+            <div class="bm-dot" style="background:#febc2e"></div>
+            <div class="bm-dot" style="background:#28c840"></div>
+            <div class="bm-url">tutoryplanning.web.app</div>
+          </div>
+          <div class="browser-mock-body">
+            <div class="mock-card">
+              <div class="mock-card-title">🎯 Mock Test — Listening Section 1</div>
+              <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px">
+                <span style="font-size:10px;color:#64748b;">Question 1–10 of 40</span>
+                <span style="font-size:11px;font-weight:700;color:#ef4444;background:#fef2f2;padding:3px 9px;border-radius:20px;">⏱ 29:42</span>
+              </div>
+              <div class="mock-q">
+                <div class="qt">Questions 1–4 · Complete the notes below.</div>
+                <div class="qtext">The caller wants to book a room for _______ nights.</div>
+                <div class="mock-opt">
+                  <span>2</span><span>3</span><span class="correct">✓ 4</span><span>5</span>
+                </div>
+              </div>
+              <div class="mock-q">
+                <div class="qtext">The name of the hotel is _______.</div>
+                <div class="mock-opt">
+                  <span>Grand Palace</span><span class="correct">✓ Park View</span><span>City Inn</span>
+                </div>
+              </div>
+            </div>
+            <div style="display:flex;gap:8px">
+              <div style="flex:1;background:#fff;border-radius:8px;padding:10px;border:1px solid #e2e8f0;text-align:center">
+                <div style="font-size:20px;font-weight:800;color:#2f61f6">7.5</div>
+                <div style="font-size:10px;color:#64748b">Predicted Band</div>
+              </div>
+              <div style="flex:1;background:#fff;border-radius:8px;padding:10px;border:1px solid #e2e8f0;text-align:center">
+                <div style="font-size:20px;font-weight:800;color:#059669">38/40</div>
+                <div style="font-size:10px;color:#64748b">Raw Score</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tab: Reading -->
+    <div class="plan-tab-content" id="ptab-reading">
+      <div class="plan-tab-text">
+        <div class="tab-eyebrow">Reading Skills</div>
+        <h3>Mini Practice Reading dengan Grading Instan</h3>
+        <p>Asah skill reading IELTS-mu dengan sesi latihan singkat — True/False/Not Given, MCQ, dan lainnya. Semua dinilai otomatis lengkap dengan pembahasan.</p>
+        <ul class="feat-list">
+          <li>Soal True / False / Not Given format IELTS</li>
+          <li>Multiple Choice &amp; Short Answer</li>
+          <li>Skor &amp; pembahasan langsung setelah submit</li>
+          <li>Bisa diulang untuk latihan intensif</li>
+        </ul>
+        <a class="btn btn-primary" href="https://tutoryplanning.web.app/" target="_blank" rel="noopener">Mulai Reading Practice →</a>
+      </div>
+      <div class="plan-tab-visual">
+        <div class="browser-mock">
+          <div class="browser-mock-bar">
+            <div class="bm-dot" style="background:#ff5f57"></div>
+            <div class="bm-dot" style="background:#febc2e"></div>
+            <div class="bm-dot" style="background:#28c840"></div>
+            <div class="bm-url">tutoryplanning.web.app</div>
+          </div>
+          <div class="browser-mock-body">
+            <div class="mock-card">
+              <div class="mock-card-title">📖 Reading Practice · True / False / Not Given</div>
+              <div style="font-size:10px;color:#64748b;margin-bottom:8px;line-height:1.5">READING PASSAGE<br><strong style="color:#0f172a">The Industrial Revolution in Britain</strong><br><span style="font-size:9.5px">The Industrial Revolution began in Britain in the mid-1700s and by the 1830s had spread to many other parts of the world...</span></div>
+              <div class="mock-q">
+                <div class="qtext">1. Britain's canal network grew rapidly so that more goods could be transported.</div>
+                <div class="mock-opt" style="margin-top:6px">
+                  <span class="correct">✓ TRUE</span><span>FALSE</span><span>NOT GIVEN</span>
+                </div>
+              </div>
+              <div class="mock-q">
+                <div class="qtext">2. Costs in the iron industry rose when smelting with coke was introduced.</div>
+                <div class="mock-opt" style="margin-top:6px">
+                  <span>TRUE</span><span style="background:#fef2f2;border-color:#fca5a5;color:#991b1b">✗ FALSE</span><span>NOT GIVEN</span>
+                </div>
+              </div>
+              <div style="background:#dcfce7;border-radius:8px;padding:7px 10px;font-size:10px;font-weight:700;color:#166534;margin-top:8px">✓ DONE — Score: 5/6 &nbsp;·&nbsp; Band Equivalent: 7.0</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tab: Listening -->
+    <div class="plan-tab-content" id="ptab-listening">
+      <div class="plan-tab-text">
+        <div class="tab-eyebrow">Listening Skills</div>
+        <h3>Listening Practice dengan Audio IELTS Asli</h3>
+        <p>Latihan Listening dengan audio berkualitas tinggi dan soal bergaya IELTS. Pantau skor dan akurasi jawabanmu setelah setiap sesi.</p>
+        <ul class="feat-list">
+          <li>Audio berkualitas tinggi, format IELTS asli</li>
+          <li>Note completion, MCQ, diagram labelling</li>
+          <li>Skor otomatis + review jawaban lengkap</li>
+          <li>Total 40 soal per full mock test</li>
+        </ul>
+        <a class="btn btn-primary" href="https://tutoryplanning.web.app/" target="_blank" rel="noopener">Mulai Listening Practice →</a>
+      </div>
+      <div class="plan-tab-visual">
+        <div class="browser-mock">
+          <div class="browser-mock-bar">
+            <div class="bm-dot" style="background:#ff5f57"></div>
+            <div class="bm-dot" style="background:#febc2e"></div>
+            <div class="bm-dot" style="background:#28c840"></div>
+            <div class="bm-url">tutoryplanning.web.app</div>
+          </div>
+          <div class="browser-mock-body">
+            <div class="mock-card">
+              <div class="mock-card-title">🎧 Listening · Section 2 of 4</div>
+              <div style="background:#f0f4ff;border-radius:8px;padding:10px 12px;margin-bottom:10px;display:flex;align-items:center;gap:10px">
+                <span style="font-size:22px">▶️</span>
+                <div style="flex:1">
+                  <div style="height:6px;background:#e2e8f0;border-radius:4px;overflow:hidden"><div style="width:42%;height:100%;background:#2f61f6;border-radius:4px"></div></div>
+                  <div style="font-size:9px;color:#64748b;margin-top:3px">02:14 / 05:30</div>
+                </div>
+              </div>
+              <div class="mock-q"><div class="qtext">Q11. What type of transport does the speaker recommend?</div><div class="mock-opt"><span>Bus</span><span class="correct">✓ Train</span><span>Taxi</span></div></div>
+              <div class="mock-q"><div class="qtext">Q12. Complete the note: Depart from _______ Station.</div><div style="background:#f8faff;border-radius:6px;padding:5px 8px;font-size:10px;color:#2f61f6;font-weight:700;margin-top:5px;border:1px dashed #c7d7ff;">Central</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tab: Progress -->
+    <div class="plan-tab-content" id="ptab-progress">
+      <div class="plan-tab-text">
+        <div class="tab-eyebrow">Progress Tracking</div>
+        <h3>Pantau Perkembangan Skormu Setiap Saat</h3>
+        <p>Lihat grafik perkembangan band score-mu dari waktu ke waktu. Ketahui skill mana yang perlu lebih banyak latihan.</p>
+        <ul class="feat-list">
+          <li>Grafik skor per skill (L, R, W, S)</li>
+          <li>History semua mock test &amp; mini practice</li>
+          <li>Identifikasi area yang perlu peningkatan</li>
+          <li>Target band score tracker</li>
+        </ul>
+        <a class="btn btn-primary" href="https://tutoryplanning.web.app/" target="_blank" rel="noopener">Lihat Progress-ku →</a>
+      </div>
+      <div class="plan-tab-visual">
+        <div class="browser-mock">
+          <div class="browser-mock-bar">
+            <div class="bm-dot" style="background:#ff5f57"></div>
+            <div class="bm-dot" style="background:#febc2e"></div>
+            <div class="bm-dot" style="background:#28c840"></div>
+            <div class="bm-url">tutoryplanning.web.app</div>
+          </div>
+          <div class="browser-mock-body">
+            <div class="mock-card">
+              <div class="mock-card-title">📊 My Progress Dashboard</div>
+              <div class="mock-score-row" style="margin-bottom:12px">
+                <div class="mock-score-box"><div class="sv">7.0</div><div class="sl">Listening</div></div>
+                <div class="mock-score-box"><div class="sv">6.5</div><div class="sl">Reading</div></div>
+                <div class="mock-score-box" style="background:#fff7ed"><div class="sv" style="color:#ea580c">6.0</div><div class="sl">Writing</div></div>
+                <div class="mock-score-box"><div class="sv">6.5</div><div class="sl">Speaking</div></div>
+              </div>
+              <div class="mock-bar-row"><div class="mock-bar-label">Listening</div><div class="mock-bar"><div class="mock-bar-fill" style="width:80%;background:#2f61f6"></div></div><span style="font-size:10px;color:#2f61f6;font-weight:700">7.0</span></div>
+              <div class="mock-bar-row"><div class="mock-bar-label">Reading</div><div class="mock-bar"><div class="mock-bar-fill" style="width:70%;background:#7c3aed"></div></div><span style="font-size:10px;color:#7c3aed;font-weight:700">6.5</span></div>
+              <div class="mock-bar-row"><div class="mock-bar-label">Writing</div><div class="mock-bar"><div class="mock-bar-fill" style="width:60%;background:#ea580c"></div></div><span style="font-size:10px;color:#ea580c;font-weight:700">6.0</span></div>
+              <div class="mock-bar-row"><div class="mock-bar-label">Speaking</div><div class="mock-bar"><div class="mock-bar-fill" style="width:70%;background:#059669"></div></div><span style="font-size:10px;color:#059669;font-weight:700">6.5</span></div>
+              <div style="background:#dbeafe;border-radius:8px;padding:7px 10px;font-size:10px;color:#1d4ed8;margin-top:10px">🎯 Target: Band 7.0 · Overall progress: 78%</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ BENEFITS ============ -->
+<section class="plan-benefits">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Keunggulan</span>
+      <h2>Kenapa Pakai Tutory Planning?</h2>
+      <p>Dirancang khusus untuk siswa Tutory English — tapi terbuka untuk semua.</p>
+    </div>
+    <div class="benefits-grid">
+      <div class="benefit-card">
+        <div class="bc-icon">🆓</div>
+        <h4>Gratis Sepenuhnya</h4>
+        <p>Akses semua fitur tanpa bayar apapun. Tidak perlu download aplikasi — langsung buka di browser.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="bc-icon">⚡</div>
+        <h4>Nilai Otomatis &amp; Instan</h4>
+        <p>Submit jawaban dan langsung lihat skor, band equivalent, serta review jawaban benar dan salah.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="bc-icon">📱</div>
+        <h4>Akses dari Mana Saja</h4>
+        <p>Bisa diakses dari HP, tablet, atau laptop. Belajar kapan saja dan di mana saja tanpa batas.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="bc-icon">🎯</div>
+        <h4>Format Soal IELTS Asli</h4>
+        <p>Soal dibuat mengikuti format resmi IELTS sehingga latihan terasa seperti tes sesungguhnya.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="bc-icon">📈</div>
+        <h4>Pantau Progress Belajar</h4>
+        <p>Dashboard progress menampilkan perkembangan skormu per skill — tahu persis di mana harus fokus.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="bc-icon">🔗</div>
+        <h4>Terintegrasi dengan Kelas</h4>
+        <p>Digunakan langsung dalam program Tutory English — tutor bisa memantau latihanmu secara langsung.</p>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:40px">
+      <a class="btn btn-primary" href="https://tutoryplanning.web.app/" target="_blank" rel="noopener" style="padding:14px 32px;font-size:15px;">Buka Tutory Planning →</a>
+    </div>
+  </div>
+</section>
+
 
 <!-- ============ CTA ============ -->
 <section class="section-soft">
   <div class="container">
     <div class="cta-band">
-      <h2>Book Your Slot and Let's Study With Us!</h2>
-      <p>Konsultasikan target band score dan kebutuhan belajarmu, atau langsung amankan slotmu sekarang.</p>
+      <h2>Siap Mulai Persiapan IELTS-mu?</h2>
+      <p>Gabungkan platform belajar dengan bimbingan tutor IELTS 8.0 untuk hasil terbaik.</p>
       <div class="hero-cta">
-        <a class="btn btn-white" href="https://tutory-english.github.io/RegistrationForm/" target="_blank" rel="noopener">Daftar Sekarang</a>
-        <a class="btn btn-ghost-white" href="https://wa.me/6287762013051?text=Halo%20kak%2C%20saya%20mau%20konsultasi%20program%20IELTS%20di%20Tutory%20English" target="_blank" rel="noopener">Chat Admin</a>
+        <a class="btn btn-white" href="https://tutoryplanning.web.app/" target="_blank" rel="noopener">Buka Tutory Planning</a>
+        <a class="btn btn-ghost-white" href="https://tutory-english.github.io/RegistrationForm/" target="_blank" rel="noopener">Daftar Kelas</a>
       </div>
     </div>
   </div>
@@ -165,6 +452,19 @@
   </div>
 </footer>
 
+<script>
+// Tab switcher
+document.querySelectorAll('.plan-tab-btn').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    var tab = btn.getAttribute('data-ptab');
+    document.querySelectorAll('.plan-tab-btn').forEach(function(b){ b.classList.remove('active'); });
+    document.querySelectorAll('.plan-tab-content').forEach(function(c){ c.classList.remove('active'); });
+    btn.classList.add('active');
+    var content = document.getElementById('ptab-' + tab);
+    if(content) content.classList.add('active');
+  });
+});
+</script>
 <script src="assets/js/main.js"></script>
 </body>
 </html>
