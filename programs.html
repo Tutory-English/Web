@@ -48,6 +48,8 @@
   }
   .prog-tab-content { display: none; }
   .prog-tab-content.active { display: block; }
+  .countdown-box{background:rgba(255,255,255,.2);border-radius:8px;padding:6px 10px;text-align:center;min-width:44px}
+  .countdown-box span{font-size:20px;font-weight:800;color:#fff;display:block;line-height:1}
 
   /* ---- Accordion Program List ---- */
   .prog-group-label {
@@ -282,6 +284,27 @@
         <p style="color:var(--muted);font-size:15px;line-height:1.7;margin:0;">Kamu bisa memilih <strong>Private Class</strong> untuk bimbingan 1-on-1 yang sepenuhnya personal, atau <strong>Group Class</strong> jika ingin belajar dengan harga lebih terjangkau dan tetap mendapat feedback rutin.</p>
       </div>
 
+      <!-- PROMO 17-AN BANNER -->
+      <div id="promo17-banner" style="background:linear-gradient(135deg,#dc2626,#ef4444);border-radius:16px;padding:20px 28px;margin-bottom:24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;">
+        <div style="display:flex;align-items:center;gap:14px;">
+          <span style="font-size:32px">🇮🇩</span>
+          <div>
+            <div style="font-size:18px;font-weight:800;color:#fff;letter-spacing:.3px;">PROMO 17-AN!</div>
+            <div style="font-size:13px;color:rgba(255,255,255,.85);margin-top:2px;">Harga spesial HUT RI ke-80 — berlaku sampai 17 Agustus 2026</div>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;">
+          <div style="font-size:11px;color:rgba(255,255,255,.8);margin-right:4px;font-weight:600;">BERAKHIR DALAM</div>
+          <div class="countdown-box"><span id="cd-d">--</span><div style="font-size:9px;color:rgba(255,255,255,.7)">Hari</div></div>
+          <div style="color:#fff;font-weight:700;">:</div>
+          <div class="countdown-box"><span id="cd-h">--</span><div style="font-size:9px;color:rgba(255,255,255,.7)">Jam</div></div>
+          <div style="color:#fff;font-weight:700;">:</div>
+          <div class="countdown-box"><span id="cd-m">--</span><div style="font-size:9px;color:rgba(255,255,255,.7)">Menit</div></div>
+          <div style="color:#fff;font-weight:700;">:</div>
+          <div class="countdown-box"><span id="cd-s">--</span><div style="font-size:9px;color:rgba(255,255,255,.7)">Detik</div></div>
+        </div>
+      </div>
+
       <span class="prog-group-label">Private Class</span>
       <ul class="prog-list">
 
@@ -465,7 +488,7 @@
       <!-- Group Class -->
       <div style="display:flex;align-items:center;gap:14px;margin-bottom:12px;flex-wrap:wrap;">
         <span class="prog-group-label">Group Class</span>
-        <span style="display:inline-block;background:#fff3cd;color:#856404;border:1px solid #ffc107;border-radius:999px;padding:4px 14px;font-size:12px;font-weight:700;">🎉 Harga HANYA BERLAKU DI PROMO 7.7</span>
+        <span style="display:inline-block;background:#fee2e2;color:#dc2626;border:1px solid #fca5a5;border-radius:999px;padding:4px 14px;font-size:12px;font-weight:700;">🇮🇩 PROMO 17-AN!</span>
       </div>
       <ul class="prog-list">
 
@@ -1351,6 +1374,35 @@
 
 <script src="assets/js/main.js"></script>
 <script>
+  // ---- Promo 17-AN Countdown ----
+  (function(){
+    var deadline = new Date('2026-08-17T23:59:59+07:00').getTime();
+    var banner = document.getElementById('promo17-banner');
+    function pad(n){ return n < 10 ? '0'+n : n; }
+    function tick(){
+      var now = Date.now();
+      var diff = deadline - now;
+      if(diff <= 0){
+        if(banner) banner.style.display = 'none';
+        return;
+      }
+      var d = Math.floor(diff / 86400000);
+      var h = Math.floor((diff % 86400000) / 3600000);
+      var m = Math.floor((diff % 3600000) / 60000);
+      var s = Math.floor((diff % 60000) / 1000);
+      var cd = document.getElementById('cd-d');
+      var ch = document.getElementById('cd-h');
+      var cm = document.getElementById('cd-m');
+      var cs = document.getElementById('cd-s');
+      if(cd) cd.textContent = pad(d);
+      if(ch) ch.textContent = pad(h);
+      if(cm) cm.textContent = pad(m);
+      if(cs) cs.textContent = pad(s);
+    }
+    tick();
+    setInterval(tick, 1000);
+  })();
+
   // Tab switching
   document.querySelectorAll('.prog-tab-btn').forEach(function(btn) {
     btn.addEventListener('click', function() {
