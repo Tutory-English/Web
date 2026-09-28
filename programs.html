@@ -175,6 +175,145 @@
   .note-box li { color: var(--muted); }
   .mt-40 { margin-top: 40px; }
 
+  /* ---- Pricing Cards ---- */
+  .price-card-grid {
+    display: grid;
+    gap: 20px;
+    margin-bottom: 40px;
+    margin-top: 12px;
+  }
+  .price-card-grid-3 {
+    display: flex !important;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .price-card-grid-3 > .price-card {
+    flex: 0 0 calc(33.333% - 14px);
+    min-width: 240px;
+  }
+  .price-card-grid-2 { grid-template-columns: repeat(2, 1fr); }
+  .price-card {
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 4px 24px rgba(0,0,0,.09);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform .22s, box-shadow .22s;
+  }
+  .price-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 36px rgba(47,97,246,.2);
+  }
+  .price-card-header {
+    background: #eef2ff;
+    padding: 22px 22px 20px;
+    border-radius: 14px;
+    margin: 8px 8px 0;
+    transition: background .25s;
+  }
+  .price-card:hover .price-card-header {
+    background: linear-gradient(135deg, #2f61f6 0%, #4f7cf8 100%);
+  }
+  .price-card-badge {
+    display: inline-block;
+    background: rgba(255,255,255,.9);
+    color: var(--primary);
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 999px;
+    margin-bottom: 16px;
+    letter-spacing: .02em;
+    transition: background .25s, color .25s;
+  }
+  .price-card:hover .price-card-badge {
+    background: rgba(255,255,255,.22);
+    color: #fff;
+  }
+  .price-card-price-original {
+    font-size: 12px;
+    text-decoration: line-through;
+    color: var(--muted-2);
+    display: block;
+    margin-bottom: 2px;
+    transition: color .25s;
+  }
+  .price-card:hover .price-card-price-original { color: rgba(255,255,255,.6); }
+  .price-card-price-main {
+    font-size: 26px;
+    font-weight: 800;
+    color: var(--ink);
+    line-height: 1.15;
+    transition: color .25s;
+  }
+  .price-card:hover .price-card-price-main { color: #fff; }
+  .price-card-meta {
+    font-size: 12px;
+    color: var(--muted-2);
+    margin-top: 6px;
+    transition: color .25s;
+  }
+  .price-card:hover .price-card-meta { color: rgba(255,255,255,.75); }
+  .price-card-body {
+    padding: 20px 22px 22px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+  .btn-dark {
+    background: #111;
+    color: #fff;
+    border-radius: 999px;
+    padding: 12px 20px;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    text-align: center;
+    display: block;
+    transition: opacity .15s;
+    margin-bottom: 18px;
+  }
+  .btn-dark:hover { opacity: .82; }
+  .price-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 14px;
+    flex: 1;
+  }
+  .price-features li {
+    font-size: 13px;
+    color: var(--muted);
+    padding: 6px 0 6px 22px;
+    position: relative;
+    border-bottom: 1px solid var(--line);
+  }
+  .price-features li:last-child { border-bottom: none; }
+  .price-features li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--primary);
+    font-weight: 700;
+  }
+  .price-card-link {
+    font-size: 12.5px;
+    color: var(--primary);
+    font-weight: 600;
+    text-decoration: none;
+    text-align: center;
+    display: block;
+    margin-top: 6px;
+  }
+  .price-card-link:hover { text-decoration: underline; }
+  .price-group-label-wrap { margin: 40px 0 12px; }
+  @media (max-width: 900px) {
+    .price-card-grid-3 { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 560px) {
+    .price-card-grid-3, .price-card-grid-2 { grid-template-columns: 1fr; }
+  }
+
   /* Feature cards (IDP tab) */
   .feat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 32px; }
   .feat-card { background: var(--bg-soft); border-radius: var(--radius-md); padding: 20px; border: 1px solid var(--line); }
@@ -284,352 +423,198 @@
         <p style="color:var(--muted);font-size:15px;line-height:1.7;margin:0;">Kamu bisa memilih <strong>Private Class</strong> untuk bimbingan 1-on-1 yang sepenuhnya personal, atau <strong>Group Class</strong> jika ingin belajar dengan harga lebih terjangkau dan tetap mendapat feedback rutin.</p>
       </div>
 
-      <!-- PROMO 17-AN BANNER -->
-      <div id="promo17-banner" style="background:linear-gradient(135deg,#dc2626,#ef4444);border-radius:16px;padding:20px 28px;margin-bottom:24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;">
-        <div style="display:flex;align-items:center;gap:14px;">
-          <span style="font-size:32px">🇮🇩</span>
-          <div>
-            <div style="font-size:18px;font-weight:800;color:#fff;letter-spacing:.3px;">PROMO 9.9!</div>
-            <div style="font-size:13px;color:rgba(255,255,255,.85);margin-top:2px;">Harga spesial HUT RI ke-80 — berlaku sampai 17 Agustus 2026</div>
-          </div>
-        </div>
-        <div style="display:flex;align-items:center;gap:8px;">
-          <div style="font-size:11px;color:rgba(255,255,255,.8);margin-right:4px;font-weight:600;">BERAKHIR DALAM</div>
-          <div class="countdown-box"><span id="cd-d">--</span><div style="font-size:9px;color:rgba(255,255,255,.7)">Hari</div></div>
-          <div style="color:#fff;font-weight:700;">:</div>
-          <div class="countdown-box"><span id="cd-h">--</span><div style="font-size:9px;color:rgba(255,255,255,.7)">Jam</div></div>
-          <div style="color:#fff;font-weight:700;">:</div>
-          <div class="countdown-box"><span id="cd-m">--</span><div style="font-size:9px;color:rgba(255,255,255,.7)">Menit</div></div>
-          <div style="color:#fff;font-weight:700;">:</div>
-          <div class="countdown-box"><span id="cd-s">--</span><div style="font-size:9px;color:rgba(255,255,255,.7)">Detik</div></div>
-        </div>
-      </div>
-
       <span class="prog-group-label">Private Class</span>
-      <ul class="prog-list">
+      <div class="price-card-grid price-card-grid-3">
 
-        <li class="prog-item">
-          <button class="prog-item-header">
-            <div class="prog-item-left">
-              <div>
-                <div class="prog-item-name">Express Coaching</div>
-                <div class="prog-item-meta">5 Jam Sesi · Pilih jadwal &amp; materi sesuai kebutuhanmu</div>
-              </div>
-            </div>
-            <div class="prog-item-right">
-              <div class="prog-item-price"><s>Rp 1.552.600</s>Rp 1.109.000</div>
-              <div class="prog-chevron"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></div>
-            </div>
-          </button>
-          <div class="prog-item-body">
-            <div class="prog-body-inner">
-              <ul class="prog-features">
-                <li>Free 1x simulation test</li>
-                <li>Writing correction &amp; speaking mock + feedback</li>
-                <li>Free detailed progress report</li>
-                <li>Jadwal fleksibel</li>
-              </ul>
-              <div class="prog-cta-box">
-                <div class="prog-price-detail">
-                  <div class="prog-price-label">Mulai dari</div>
-                  <div class="prog-normal-price">Rp 1.552.600</div>
-                  <div class="prog-promo-price">Rp 1.109.000</div>
-                </div>
-                <a class="btn btn-outline btn-block" href="https://tutory-english.github.io/RegistrationForm/" target="_blank" rel="noopener">Daftar Sekarang</a>
-                <a class="more-link" href="class-express-coaching.html">More About the Class →</a>
-              </div>
-            </div>
+        <!-- Express Coaching -->
+        <div class="price-card">
+          <div class="price-card-header">
+            <span class="price-card-badge">Express Coaching</span>
+            <span class="price-card-price-original">Rp 1.552.600</span>
+            <div class="price-card-price-main">Rp 1.109.000</div>
+            <div class="price-card-meta">5 Jam Sesi · Jadwal fleksibel</div>
           </div>
-        </li>
-
-        <li class="prog-item">
-          <button class="prog-item-header">
-            <div class="prog-item-left">
-              <div>
-                <div class="prog-item-name">Basic Coaching</div>
-                <div class="prog-item-meta">10 Jam Sesi · Pilih jadwal &amp; materi sesuai kebutuhanmu</div>
-              </div>
-              <span class="prog-item-badge badge-gold">🏅 Band Guaranteed*</span>
-            </div>
-            <div class="prog-item-right">
-              <div class="prog-item-price"><s>Rp 2.658.600</s>Rp 1.759.000</div>
-              <div class="prog-chevron"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></div>
-            </div>
-          </button>
-          <div class="prog-item-body">
-            <div class="prog-body-inner">
-              <ul class="prog-features">
-                <li>+0.5 band (4.0 → 5.0) / +0.5 band (≥5.5)*</li>
-                <li>Diagnostic test + 1 progress test</li>
-                <li>2 post-test dengan evaluasi peningkatan</li>
-                <li>Writing correction &amp; speaking mock + feedback</li>
-                <li>Free detailed progress report</li>
-              </ul>
-              <div class="prog-cta-box">
-                <div class="prog-price-detail">
-                  <div class="prog-price-label">Mulai dari</div>
-                  <div class="prog-normal-price">Rp 2.658.600</div>
-                  <div class="prog-promo-price">Rp 1.899.000</div>
-                </div>
-                <a class="btn btn-outline btn-block" href="https://tutory-english.github.io/RegistrationForm/" target="_blank" rel="noopener">Daftar Sekarang</a>
-                <a class="more-link" href="class-basic-coaching.html">More About the Class →</a>
-              </div>
-            </div>
+          <div class="price-card-body">
+            <a class="btn-dark" href="https://tutory-english.github.io/RegistrationForm/" target="_blank" rel="noopener">Daftar Sekarang</a>
+            <ul class="price-features">
+              <li>Free 1x simulation test</li>
+              <li>Writing correction &amp; speaking mock + feedback</li>
+              <li>Free detailed progress report</li>
+              <li>Jadwal fleksibel</li>
+            </ul>
+            <a class="price-card-link" href="class-express-coaching.html">More About the Class →</a>
           </div>
-        </li>
+        </div>
 
-        <li class="prog-item">
-          <button class="prog-item-header">
-            <div class="prog-item-left">
-              <div>
-                <div class="prog-item-name">Intensive Coaching ⭐ Favorit</div>
-                <div class="prog-item-meta">20 Jam Sesi · Pilih jadwal &amp; materi sesuai kebutuhanmu</div>
-              </div>
-              <span class="prog-item-badge badge-gold">🏅 Band Guaranteed*</span>
-            </div>
-            <div class="prog-item-right">
-              <div class="prog-item-price"><s>Rp 4.618.600</s>Rp 3.100.000</div>
-              <div class="prog-chevron"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></div>
-            </div>
-          </button>
-          <div class="prog-item-body">
-            <div class="prog-body-inner">
-              <ul class="prog-features">
-                <li>+1 band (4.0 → 5.0) / +0.5 band (≥5.5)*</li>
-                <li>Diagnostic test + 1 progress test</li>
-                <li>3 post-test dengan evaluasi peningkatan</li>
-                <li>Final readiness evaluation + laporan performa detail</li>
-              </ul>
-              <div class="prog-cta-box">
-                <div class="prog-price-detail">
-                  <div class="prog-price-label">Mulai dari</div>
-                  <div class="prog-normal-price">Rp 4.618.600</div>
-                  <div class="prog-promo-price">Rp 3.299.000</div>
-                </div>
-                <a class="btn btn-primary btn-block" href="https://tutory-english.github.io/RegistrationForm/" target="_blank" rel="noopener">Daftar Sekarang</a>
-                <a class="more-link" href="class-intensive-coaching.html">More About the Class →</a>
-              </div>
-            </div>
+        <!-- Basic Coaching -->
+        <div class="price-card">
+          <div class="price-card-header">
+            <span class="price-card-badge">Basic Coaching · 🏅 Band Guaranteed*</span>
+            <span class="price-card-price-original">Rp 2.658.600</span>
+            <div class="price-card-price-main">Rp 1.759.000</div>
+            <div class="price-card-meta">10 Jam Sesi · Jadwal fleksibel</div>
           </div>
-        </li>
-
-        <li class="prog-item">
-          <button class="prog-item-header">
-            <div class="prog-item-left">
-              <div>
-                <div class="prog-item-name">ELITE Coaching</div>
-                <div class="prog-item-meta">40 Jam Sesi · Pilih jadwal &amp; materi sesuai kebutuhanmu</div>
-              </div>
-              <span class="prog-item-badge badge-gold">🏅 Band Guaranteed*</span>
-            </div>
-            <div class="prog-item-right">
-              <div class="prog-item-price"><s>Rp 8.258.600</s>Rp 5.659.000</div>
-              <div class="prog-chevron"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></div>
-            </div>
-          </button>
-          <div class="prog-item-body">
-            <div class="prog-body-inner">
-              <ul class="prog-features">
-                <li>+1 band (4.0 → 5.0) / +0.5 band (≥5.5)*</li>
-                <li>Diagnostic test + 2 progress test</li>
-                <li>3 post-test dengan evaluasi peningkatan</li>
-                <li>Free 1x simulation test</li>
-                <li>Final readiness evaluation + laporan performa detail</li>
-              </ul>
-              <div class="prog-cta-box">
-                <div class="prog-price-detail">
-                  <div class="prog-price-label">Mulai dari</div>
-                  <div class="prog-normal-price">Rp 8.258.600</div>
-                  <div class="prog-promo-price">Rp 5.899.000</div>
-                </div>
-                <a class="btn btn-outline btn-block" href="https://tutory-english.github.io/RegistrationForm/" target="_blank" rel="noopener">Daftar Sekarang</a>
-                <a class="more-link" href="class-elite-coaching.html">More About the Class →</a>
-              </div>
-            </div>
+          <div class="price-card-body">
+            <a class="btn-dark" href="https://tutory-english.github.io/RegistrationForm/" target="_blank" rel="noopener">Daftar Sekarang</a>
+            <ul class="price-features">
+              <li>+0.5 band (4.0→5.0) / +0.5 band (≥5.5)*</li>
+              <li>Diagnostic test + 1 progress test</li>
+              <li>2 post-test dengan evaluasi peningkatan</li>
+              <li>Writing correction &amp; speaking mock + feedback</li>
+              <li>Free detailed progress report</li>
+            </ul>
+            <a class="price-card-link" href="class-basic-coaching.html">More About the Class →</a>
           </div>
-        </li>
+        </div>
 
-        <li class="prog-item">
-          <button class="prog-item-header">
-            <div class="prog-item-left">
-              <div>
-                <div class="prog-item-name">IELTS General Training Coaching</div>
-                <div class="prog-item-meta">12 Jam Sesi · Pilih jadwal &amp; materi sesuai kebutuhanmu</div>
-              </div>
-            </div>
-            <div class="prog-item-right">
-              <div class="prog-item-price"><s>Rp 2.899.000</s>Rp 1.528.155</div>
-              <div class="prog-chevron"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></div>
-            </div>
-          </button>
-          <div class="prog-item-body">
-            <div class="prog-body-inner">
-              <ul class="prog-features">
-                <li>Fokus IELTS IELTS General Training Coaching (4 skill)</li>
-                <li>English praktis untuk kerja &amp; kehidupan sehari-hari di luar negeri</li>
-                <li>Diagnostic test &amp; progress report</li>
-                <li>Jadwal fleksibel</li>
-              </ul>
-              <div class="prog-cta-box">
-                <div class="prog-price-detail">
-                  <div class="prog-price-label">Mulai dari</div>
-                  <div class="prog-normal-price">Rp 2.899.000</div>
-                  <div class="prog-promo-price">Rp 1.528.155</div>
-                </div>
-                <a class="btn btn-outline btn-block" href="https://tutory-english.github.io/RegistrationForm/" target="_blank" rel="noopener">Daftar Sekarang</a>
-                <a class="more-link" href="class-whv.html">More About the Class →</a>
-              </div>
-            </div>
+        <!-- Intensive Coaching -->
+        <div class="price-card">
+          <div class="price-card-header">
+            <span class="price-card-badge">⭐ Intensive Coaching — Favorit</span>
+            <span class="price-card-price-original">Rp 4.618.600</span>
+            <div class="price-card-price-main">Rp 3.100.000</div>
+            <div class="price-card-meta">20 Jam Sesi · Jadwal fleksibel</div>
           </div>
-        </li>
+          <div class="price-card-body">
+            <a class="btn-dark" href="https://tutory-english.github.io/RegistrationForm/" target="_blank" rel="noopener">Daftar Sekarang</a>
+            <ul class="price-features">
+              <li>🏅 Band Guaranteed*</li>
+              <li>+1 band (4.0→5.0) / +0.5 band (≥5.5)*</li>
+              <li>Diagnostic test + 1 progress test</li>
+              <li>3 post-test dengan evaluasi peningkatan</li>
+              <li>Final readiness evaluation + laporan detail</li>
+            </ul>
+            <a class="price-card-link" href="class-intensive-coaching.html">More About the Class →</a>
+          </div>
+        </div>
 
-      </ul>
+        <!-- ELITE Coaching -->
+        <div class="price-card">
+          <div class="price-card-header">
+            <span class="price-card-badge">ELITE Coaching · 🏅 Band Guaranteed*</span>
+            <span class="price-card-price-original">Rp 8.258.600</span>
+            <div class="price-card-price-main">Rp 5.659.000</div>
+            <div class="price-card-meta">40 Jam Sesi · Jadwal fleksibel</div>
+          </div>
+          <div class="price-card-body">
+            <a class="btn-dark" href="https://tutory-english.github.io/RegistrationForm/" target="_blank" rel="noopener">Daftar Sekarang</a>
+            <ul class="price-features">
+              <li>+1 band (4.0→5.0) / +0.5 band (≥5.5)*</li>
+              <li>Diagnostic test + 2 progress test</li>
+              <li>3 post-test dengan evaluasi peningkatan</li>
+              <li>Free 1x simulation test</li>
+              <li>Final readiness evaluation + laporan detail</li>
+            </ul>
+            <a class="price-card-link" href="class-elite-coaching.html">More About the Class →</a>
+          </div>
+        </div>
 
-      <!-- Group Class -->
-      <div style="display:flex;align-items:center;gap:14px;margin-bottom:12px;flex-wrap:wrap;">
-        <span class="prog-group-label">Group Class</span>
-        <span style="display:inline-block;background:#fee2e2;color:#dc2626;border:1px solid #fca5a5;border-radius:999px;padding:4px 14px;font-size:12px;font-weight:700;">🇮🇩 PROMO 9.9!</span>
+        <!-- IELTS General Training -->
+        <div class="price-card">
+          <div class="price-card-header">
+            <span class="price-card-badge">IELTS General Training</span>
+            <span class="price-card-price-original">Rp 2.899.000</span>
+            <div class="price-card-price-main">Rp 1.528.155</div>
+            <div class="price-card-meta">12 Jam Sesi · Jadwal fleksibel</div>
+          </div>
+          <div class="price-card-body">
+            <a class="btn-dark" href="https://tutory-english.github.io/RegistrationForm/" target="_blank" rel="noopener">Daftar Sekarang</a>
+            <ul class="price-features">
+              <li>Fokus IELTS General Training (4 skill)</li>
+              <li>English praktis untuk kerja &amp; kehidupan di luar negeri</li>
+              <li>Diagnostic test &amp; progress report</li>
+              <li>Jadwal fleksibel</li>
+            </ul>
+            <a class="price-card-link" href="class-whv.html">More About the Class →</a>
+          </div>
+        </div>
+
       </div>
-      <ul class="prog-list">
 
-        <li class="prog-item">
-          <button class="prog-item-header">
-            <div class="prog-item-left">
-              <div>
-                <div class="prog-item-name">Semi Private Class <span style="font-size:11px;font-weight:700;background:#fef3c7;color:#92400e;border-radius:999px;padding:2px 10px;vertical-align:middle;">Coming Soon</span></div>
-                <div class="prog-item-meta">20 Jam Sesi · Min. 3 siswa</div>
-              </div>
-            </div>
-            <div class="prog-item-right">
-              <div class="prog-item-price"><s>Rp 1.309.000</s>Rp 935.000</div>
-              <div class="prog-chevron"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></div>
-            </div>
-          </button>
-          <div class="prog-item-body">
-            <div class="prog-body-inner">
-              <ul class="prog-features">
-                <li>Kelas kecil, lebih personal dari Group Class</li>
-                <li>Diagnostic test + feedback rutin</li>
-                <li>Free rekaman kelas</li>
-                <li>Free akses Tutory Community</li>
-              </ul>
-              <div class="prog-cta-box">
-                <div class="prog-price-detail">
-                  <div class="prog-price-label">Mulai dari</div>
-                  <div class="prog-normal-price">Rp 1.309.000</div>
-                  <div class="prog-promo-price">Rp 935.000</div>
-                </div>
-                <a class="btn btn-outline btn-block" href="https://tutory-english.github.io/RegistrationForm/" target="_blank" rel="noopener">Daftar Sekarang</a>
-                <a class="more-link" href="class-semi-private-class.html">More About the Class →</a>
-              </div>
-            </div>
+      <span class="prog-group-label" style="margin-top:16px;display:inline-block;">Group Class</span>
+      <div class="price-card-grid price-card-grid-2">
+
+        <!-- Semi Private -->
+        <div class="price-card">
+          <div class="price-card-header">
+            <span class="price-card-badge">Semi Private Class &nbsp;<span style="background:#fef3c7;color:#92400e;border-radius:999px;padding:2px 8px;font-size:10px;">Coming Soon</span></span>
+            <span class="price-card-price-original">Rp 1.309.000</span>
+            <div class="price-card-price-main">Rp 935.000</div>
+            <div class="price-card-meta">20 Jam Sesi · Min. 3 siswa</div>
           </div>
-        </li>
-
-        <li class="prog-item">
-          <button class="prog-item-header">
-            <div class="prog-item-left">
-              <div>
-                <div class="prog-item-name">IELTS All Skills — Beginner Class</div>
-                <div class="prog-item-meta">10 Jam Sesi · Min. 3 siswa · Cocok untuk pemula</div>
-              </div>
-            </div>
-            <div class="prog-item-right">
-              <div class="prog-item-price"><s>Rp 670.600</s>Rp 479.000</div>
-              <div class="prog-chevron"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></div>
-            </div>
-          </button>
-          <div class="prog-item-body">
-            <div class="prog-body-inner">
-              <ul class="prog-features">
-                <li>Mencakup 4 skills: Listening, Reading, Writing, Speaking</li>
-                <li>Cocok untuk yang baru mulai belajar IELTS dari dasar</li>
-                <li>Free pre-test &amp; final test</li>
-                <li>2 pilihan jadwal: Weekdays (Ms. Adilla) &amp; Weekend (Ms. Lucia)</li>
-              </ul>
-              <div class="prog-cta-box">
-                <div class="prog-price-detail">
-                  <div class="prog-price-label">Mulai dari</div>
-                  <div class="prog-normal-price">Rp 670.600</div>
-                  <div class="prog-promo-price">Rp 479.000</div>
-                </div>
-                <a class="btn btn-outline btn-block" href="https://tutory-english.github.io/RegistrationForm/" target="_blank" rel="noopener">Daftar Sekarang</a>
-                <a class="more-link" href="class-ielts-beginner-class.html">More About the Class →</a>
-              </div>
-            </div>
+          <div class="price-card-body">
+            <a class="btn-dark" href="https://tutory-english.github.io/RegistrationForm/" target="_blank" rel="noopener">Daftar Sekarang</a>
+            <ul class="price-features">
+              <li>Kelas kecil, lebih personal dari Group Class</li>
+              <li>Diagnostic test + feedback rutin</li>
+              <li>Free rekaman kelas</li>
+              <li>Free akses Tutory Community</li>
+            </ul>
+            <a class="price-card-link" href="class-semi-private-class.html">More About the Class →</a>
           </div>
-        </li>
+        </div>
 
-        <li class="prog-item">
-          <button class="prog-item-header">
-            <div class="prog-item-left">
-              <div>
-                <div class="prog-item-name">Writing &amp; Speaking Class</div>
-                <div class="prog-item-meta">15 Jam Sesi</div>
-              </div>
-            </div>
-            <div class="prog-item-right">
-              <div class="prog-item-price"><s>Rp 670.600</s>Rp 499.000</div>
-              <div class="prog-chevron"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></div>
-            </div>
-          </button>
-          <div class="prog-item-body">
-            <div class="prog-body-inner">
-              <ul class="prog-features">
-                <li>Latihan terbimbing &amp; feedback personal</li>
-                <li>Free post-test IELTS (4 skills)</li>
-                <li>Free rekaman kelas</li>
-                <li>Free akses Tutory Community</li>
-              </ul>
-              <div class="prog-cta-box">
-                <div class="prog-price-detail">
-                  <div class="prog-price-label">Mulai dari</div>
-                  <div class="prog-normal-price">Rp 670.600</div>
-                  <div class="prog-promo-price">Rp 479.000</div>
-                </div>
-                <a class="btn btn-outline btn-block" href="https://tutory-english.github.io/RegistrationForm/" target="_blank" rel="noopener">Daftar Sekarang</a>
-                <a class="more-link" href="class-writing-speaking-class.html">More About the Class →</a>
-              </div>
-            </div>
+        <!-- IELTS Beginner -->
+        <div class="price-card">
+          <div class="price-card-header">
+            <span class="price-card-badge">IELTS All Skills — Beginner Class</span>
+            <span class="price-card-price-original">Rp 670.600</span>
+            <div class="price-card-price-main">Rp 479.000</div>
+            <div class="price-card-meta">10 Jam Sesi · Min. 3 siswa · Cocok untuk pemula</div>
           </div>
-        </li>
-
-        <li class="prog-item">
-          <button class="prog-item-header">
-            <div class="prog-item-left">
-              <div>
-                <div class="prog-item-name">Bundle: W&amp;S + Grammar</div>
-                <div class="prog-item-meta">25 Jam Sesi</div>
-              </div>
-              <span class="prog-item-badge badge-green">Hemat</span>
-            </div>
-            <div class="prog-item-right">
-              <div class="prog-item-price"><s>Rp 908.600</s>Rp 679.000</div>
-              <div class="prog-chevron"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></div>
-            </div>
-          </button>
-          <div class="prog-item-body">
-            <div class="prog-body-inner">
-              <ul class="prog-features">
-                <li>Gabungan Writing &amp; Speaking + Grammar Class</li>
-                <li>Free post-test IELTS (4 skills)</li>
-                <li>Free rekaman &amp; materi kelas</li>
-                <li>Free akses Tutory Community</li>
-              </ul>
-              <div class="prog-cta-box">
-                <div class="prog-price-detail">
-                  <div class="prog-price-label">Mulai dari</div>
-                  <div class="prog-normal-price">Rp 908.600</div>
-                  <div class="prog-promo-price">Rp 649.000</div>
-                </div>
-                <a class="btn btn-primary btn-block" href="https://tutory-english.github.io/RegistrationForm/" target="_blank" rel="noopener">Daftar Sekarang</a>
-                <a class="more-link" href="class-bundle-ws-grammar.html">More About the Class →</a>
-              </div>
-            </div>
+          <div class="price-card-body">
+            <a class="btn-dark" href="https://tutory-english.github.io/RegistrationForm/" target="_blank" rel="noopener">Daftar Sekarang</a>
+            <ul class="price-features">
+              <li>Mencakup 4 skills: Listening, Reading, Writing, Speaking</li>
+              <li>Cocok untuk yang baru mulai belajar IELTS dari dasar</li>
+              <li>Free pre-test &amp; final test</li>
+              <li>Jadwal: Selasa &amp; Rabu, bersama Ms. Lucia</li>
+            </ul>
+            <a class="price-card-link" href="class-ielts-beginner-class.html">More About the Class →</a>
           </div>
-        </li>
+        </div>
 
-      </ul>
+        <!-- Writing & Speaking -->
+        <div class="price-card">
+          <div class="price-card-header">
+            <span class="price-card-badge">Writing &amp; Speaking Class</span>
+            <span class="price-card-price-original">Rp 670.600</span>
+            <div class="price-card-price-main">Rp 499.000</div>
+            <div class="price-card-meta">15 Jam Sesi</div>
+          </div>
+          <div class="price-card-body">
+            <a class="btn-dark" href="https://tutory-english.github.io/RegistrationForm/" target="_blank" rel="noopener">Daftar Sekarang</a>
+            <ul class="price-features">
+              <li>Latihan terbimbing &amp; feedback personal</li>
+              <li>Free post-test IELTS (4 skills)</li>
+              <li>Free rekaman kelas</li>
+              <li>Free akses Tutory Community</li>
+            </ul>
+            <a class="price-card-link" href="class-writing-speaking-class.html">More About the Class →</a>
+          </div>
+        </div>
+
+        <!-- Bundle -->
+        <div class="price-card">
+          <div class="price-card-header">
+            <span class="price-card-badge">Bundle: W&amp;S + Grammar — Hemat!</span>
+            <span class="price-card-price-original">Rp 908.600</span>
+            <div class="price-card-price-main">Rp 679.000</div>
+            <div class="price-card-meta">22 Jam Sesi · Bundling terbaik</div>
+          </div>
+          <div class="price-card-body">
+            <a class="btn-dark" href="https://tutory-english.github.io/RegistrationForm/" target="_blank" rel="noopener">Daftar Sekarang</a>
+            <ul class="price-features">
+              <li>Gabungan Writing &amp; Speaking + Grammar Class</li>
+              <li>Free post-test IELTS (4 skills)</li>
+              <li>Free rekaman &amp; materi kelas</li>
+              <li>Free akses Tutory Community</li>
+            </ul>
+            <a class="price-card-link" href="class-bundle-ws-grammar.html">More About the Class →</a>
+          </div>
+        </div>
+
+      </div>
 
       <div class="note-box">
         <strong>⭐ Band Guarantee Class:</strong>
@@ -669,333 +654,190 @@
     <!-- ========================================================= -->
     <div id="tab-scholarship" class="prog-tab-content">
 
-      <!-- Intro -->
       <div style="max-width:760px;margin:0 auto 40px;text-align:center;">
         <h2 style="font-size:22px;margin-bottom:10px;">IELTS + Scholarship Preparation</h2>
         <p style="color:var(--muted);font-size:15px;line-height:1.7;margin:0 0 14px;">Program ini dirancang khusus untuk kamu yang ingin mempersiapkan dua hal sekaligus: skor IELTS dan aplikasi beasiswa. Selain belajar keempat skill IELTS secara privat, kamu juga mendapat sesi pendampingan untuk menulis essay beasiswa yang kuat, mulai dari brainstorming hingga finalisasi.</p>
-        <p style="color:var(--muted);font-size:15px;line-height:1.7;margin:0;">Program ini cocok untuk kamu yang sedang mempersiapkan beasiswa <strong>Chevening</strong> (UK) maupun beasiswa <strong>non-Chevening</strong> seperti LPDP, Australia Awards, Fulbright, VLIR-UOS, atau beasiswa universitas langsung.</p>
+        <p style="color:var(--muted);font-size:15px;line-height:1.7;margin:0;">Cocok untuk beasiswa <strong>Chevening</strong>, <strong>LPDP</strong>, Australia Awards, Fulbright, VLIR-UOS, atau beasiswa universitas langsung.</p>
       </div>
 
+      <!-- Super Class All-in-One -->
       <span class="prog-group-label">Full Preparation Package</span>
-      <ul class="prog-list">
-
-        <li class="prog-item">
-          <button class="prog-item-header">
-            <div class="prog-item-left">
-              <div>
-                <div class="prog-item-name">Scholarship Preparation 2027</div>
-                <div class="prog-item-meta">30 Jam IELTS · 10 Jam Scholarship Prep · Full Package</div>
-              </div>
-              <span class="prog-item-badge badge-gold">🌟 All-in-One</span>
+      <div style="margin-top:12px;margin-bottom:40px;">
+        <div class="price-card">
+          <div class="price-card-header" style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px;">
+            <div>
+              <span class="price-card-badge">🌟 Scholarship Preparation 2027 — Super Class All in One</span>
+              <span class="price-card-price-original">Rp 14.599.000</span>
+              <div class="price-card-price-main">Rp 6.499.000</div>
+              <div class="price-card-meta">30 Jam IELTS · 10 Jam Scholarship Prep · Full Package · Hemat sampai 55%</div>
             </div>
-            <div class="prog-item-right">
-              <div class="prog-item-price" style="font-size:17px;">Rp 6.499.000</div>
-              <div class="prog-chevron"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></div>
-            </div>
-          </button>
-          <div class="prog-item-body">
-            <div class="prog-body-inner">
-
-              <!-- What's included labels -->
-              <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:18px;">
-                <div style="background:#eef2ff;border-radius:10px;padding:12px 14px;">
-                  <div style="font-size:11px;font-weight:700;color:var(--primary);text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px;">IELTS Preparation</div>
-                  <ul style="margin:0;padding-left:16px;font-size:13px;color:var(--ink);line-height:1.7;">
-                    <li>30 jam intensive class (4 skill)</li>
-                    <li>3x Full IELTS Mock Test</li>
-                    <li>Personalized feedback setiap sesi</li>
-                    <li>Study plan sesuai target band</li>
-                    <li>Free materi &amp; recording kelas</li>
-                  </ul>
-                </div>
-                <div style="background:#eef2ff;border-radius:10px;padding:12px 14px;">
-                  <div style="font-size:11px;font-weight:700;color:var(--primary);text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px;">Scholarship Prep</div>
-                  <ul style="margin:0;padding-left:16px;font-size:13px;color:var(--ink);line-height:1.7;">
-                    <li>5 jam Essay Preparation</li>
-                    <li>5 jam Interview Preparation*</li>
-                    <li>Personal statement review</li>
-                    <li>Application strategy</li>
-                    <li>*bisa disesuaikan per request</li>
-                  </ul>
-                </div>
-                <div style="background:#eef2ff;border-radius:10px;padding:12px 14px;">
-                  <div style="font-size:11px;font-weight:700;color:var(--primary);text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px;">University &amp; Visa</div>
-                  <ul style="margin:0;padding-left:16px;font-size:13px;color:var(--ink);line-height:1.7;">
-                    <li>University application guidance</li>
-                    <li>Document preparation</li>
-                    <li>Statement of Purpose</li>
-                    <li>Visa document checklist</li>
-                    <li>Application timeline</li>
-                  </ul>
-                </div>
-              </div>
-
-              <div class="prog-cta-box">
-                <div class="prog-price-detail">
-                  <div class="prog-price-label">Total Investasi</div>
-                  <div class="prog-promo-price no-strike">Rp 6.499.000</div>
-                </div>
-                <a class="btn btn-outline btn-block" href="https://tutory-english.github.io/RegistrationForm/" target="_blank" rel="noopener">Daftar Sekarang</a>
-              </div>
-              <div style="text-align:center;margin-top:10px;">
-                <a href="class-scholarship-2027.html" style="font-size:13.5px;color:var(--primary);font-weight:600;text-decoration:none;">Lihat Detail Program &amp; Silabus →</a>
-              </div>
-
-            </div>
+            <a class="btn-dark" href="https://tutory-english.github.io/RegistrationForm/" target="_blank" rel="noopener" style="min-width:180px;flex-shrink:0;white-space:nowrap;">Daftar Sekarang</a>
           </div>
-        </li>
-
-      </ul>
-
-      <ul class="prog-list" style="display:none;">
-
-        <li class="prog-item" style="display:none;">
-          <button class="prog-item-header">
-            <div class="prog-item-left">
-              <div>
-                <div class="prog-item-name">IELTS + Chevening Preparation Essay</div>
-                <div class="prog-item-meta">10 Jam IELTS · 4 Sesi Essay Prep · 1x IDP · Group Class</div>
+          <div class="price-card-body">
+            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:16px;">
+              <div style="background:#eef2ff;border-radius:10px;padding:14px;">
+                <div style="font-size:11px;font-weight:700;color:var(--primary);text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px;">IELTS Preparation</div>
+                <ul class="price-features" style="margin:0;">
+                  <li>30 jam intensive class (4 skill)</li>
+                  <li>3x Full IELTS Mock Test</li>
+                  <li>Personalized feedback setiap sesi</li>
+                  <li>Study plan sesuai target band</li>
+                  <li>Free materi &amp; recording kelas</li>
+                </ul>
               </div>
-              <span class="prog-item-badge badge-blue">Batch Agustus</span>
-            </div>
-            <div class="prog-item-right">
-              <div class="prog-item-price" style="font-size:17px;">Rp 849.000</div>
-              <div class="prog-chevron"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></div>
-            </div>
-          </button>
-          <div class="prog-item-body">
-            <div class="prog-body-inner">
-              <ul class="prog-features">
-                <li>IELTS Preparation 10 jam (Listening, Reading, Writing, Speaking)</li>
-                <li>4 sesi Chevening Essay Preparation</li>
-                <li>1x sesi konsultasi bersama IDP</li>
-                <li>Free recording &amp; materi kelas</li>
-              </ul>
-              <div class="prog-cta-box">
-                <div class="prog-price-detail">
-                  <div class="prog-price-label">Harga</div>
-                  <div class="prog-promo-price no-strike">Rp 849.000</div>
-                </div>
-                <a class="btn btn-outline btn-block" href="https://tutory-english.github.io/RegistrationForm/" target="_blank" rel="noopener">Daftar Sekarang</a>
-                <a class="more-link" href="class-ielts-chevening-essay.html">More About the Class →</a>
+              <div style="background:#eef2ff;border-radius:10px;padding:14px;">
+                <div style="font-size:11px;font-weight:700;color:var(--primary);text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px;">Scholarship Prep</div>
+                <ul class="price-features" style="margin:0;">
+                  <li>5 jam Essay Preparation</li>
+                  <li>5 jam Interview Preparation*</li>
+                  <li>Personal statement review</li>
+                  <li>Application strategy</li>
+                  <li>*bisa disesuaikan per request</li>
+                </ul>
+              </div>
+              <div style="background:#eef2ff;border-radius:10px;padding:14px;">
+                <div style="font-size:11px;font-weight:700;color:var(--primary);text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px;">University &amp; Visa</div>
+                <ul class="price-features" style="margin:0;">
+                  <li>University application guidance</li>
+                  <li>Document preparation</li>
+                  <li>Statement of Purpose</li>
+                  <li>Visa document checklist</li>
+                  <li>Application timeline</li>
+                </ul>
               </div>
             </div>
+            <a class="price-card-link" href="class-scholarship-2027.html">Lihat Detail Program &amp; Silabus →</a>
           </div>
-        </li>
-      </ul>
-
-      <hr class="prog-divider">
-      <span class="prog-group-label">Program Non-Chevening</span>
-      <ul class="prog-list">
-
-        <li class="prog-item">
-          <button class="prog-item-header">
-            <div class="prog-item-left">
-              <div>
-                <div class="prog-item-name">IELTS + Scholarship Preparation</div>
-                <div class="prog-item-meta">15 Jam IELTS · 1 Meeting Scholarship</div>
-              </div>
-            </div>
-            <div class="prog-item-right">
-              <div class="prog-item-price" style="font-size:17px;">Rp 2.699.000</div>
-              <div class="prog-chevron"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></div>
-            </div>
-          </button>
-          <div class="prog-item-body">
-            <div class="prog-body-inner">
-              <ul class="prog-features">
-                <li>Kelas IELTS privat 15 jam (4 skill)</li>
-                <li>1x sesi scholarship preparation (essay consultation)</li>
-                <li>Free recording &amp; materi kelas</li>
-                <li>Jadwal IELTS fleksibel</li>
-              </ul>
-              <div class="prog-cta-box">
-                <div class="prog-price-detail">
-                  <div class="prog-price-label">Mulai dari</div>
-                  <div class="prog-promo-price no-strike">Rp 2.699.000</div>
-                </div>
-                <a class="btn btn-outline btn-block" href="https://tutory-english.github.io/RegistrationForm/" target="_blank" rel="noopener">Daftar Sekarang</a>
-                <a class="more-link" href="class-ielts-scholarship-non-chevening.html">More About the Class →</a>
-              </div>
-            </div>
-          </div>
-        </li>
-
-        <li class="prog-item">
-          <button class="prog-item-header">
-            <div class="prog-item-left">
-              <div>
-                <div class="prog-item-name">IELTS + Scholarship Preparation</div>
-                <div class="prog-item-meta">15 Jam IELTS · 5 Meeting Scholarship</div>
-              </div>
-              <span class="prog-item-badge badge-blue">Paling Populer</span>
-            </div>
-            <div class="prog-item-right">
-              <div class="prog-item-price" style="font-size:17px;">Rp 3.380.000</div>
-              <div class="prog-chevron"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></div>
-            </div>
-          </button>
-          <div class="prog-item-body">
-            <div class="prog-body-inner">
-              <ul class="prog-features">
-                <li>Kelas IELTS privat 15 jam (4 skill)</li>
-                <li>5x sesi scholarship preparation (draft, revisi, finalisasi)</li>
-                <li>Free recording &amp; materi kelas</li>
-                <li>Jadwal IELTS fleksibel</li>
-              </ul>
-              <div class="prog-cta-box">
-                <div class="prog-price-detail">
-                  <div class="prog-price-label">Mulai dari</div>
-                  <div class="prog-promo-price no-strike">Rp 3.380.000</div>
-                </div>
-                <a class="btn btn-primary btn-block" href="https://tutory-english.github.io/RegistrationForm/" target="_blank" rel="noopener">Daftar Sekarang</a>
-                <a class="more-link" href="class-ielts-scholarship-non-chevening.html">More About the Class →</a>
-              </div>
-            </div>
-          </div>
-        </li>
-
-        <li class="prog-item">
-          <button class="prog-item-header">
-            <div class="prog-item-left">
-              <div>
-                <div class="prog-item-name">IELTS + Scholarship Preparation</div>
-                <div class="prog-item-meta">IELTS Class · 10 Meeting Scholarship</div>
-              </div>
-            </div>
-            <div class="prog-item-right">
-              <div class="prog-item-price" style="font-size:17px;">Rp 4.150.000</div>
-              <div class="prog-chevron"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></div>
-            </div>
-          </button>
-          <div class="prog-item-body">
-            <div class="prog-body-inner">
-              <ul class="prog-features">
-                <li>Kelas IELTS privat (4 skill)</li>
-                <li>10x sesi scholarship preparation (pendampingan intensif essay)</li>
-                <li>Free recording &amp; materi kelas</li>
-                <li>Jadwal IELTS fleksibel</li>
-              </ul>
-              <div class="prog-cta-box">
-                <div class="prog-price-detail">
-                  <div class="prog-price-label">Mulai dari</div>
-                  <div class="prog-promo-price no-strike">Rp 4.150.000</div>
-                </div>
-                <a class="btn btn-outline btn-block" href="https://tutory-english.github.io/RegistrationForm/" target="_blank" rel="noopener">Daftar Sekarang</a>
-                <a class="more-link" href="class-ielts-scholarship-non-chevening.html">More About the Class →</a>
-              </div>
-            </div>
-          </div>
-        </li>
-
-      </ul>
-
-      <hr class="prog-divider">
-      <span class="prog-group-label">Essay Checking &amp; Interview Preparation</span>
-
-      <div style="max-width:760px;margin:0 auto 20px;text-align:center;">
-        <p style="color:var(--muted);font-size:15px;line-height:1.7;margin:0;">Dapatkan bimbingan personal untuk memperkuat aplikasi beasiswamu melalui sesi one-on-one. Pilih paket yang paling sesuai dengan kebutuhanmu, mulai dari review essay, perbaikan personal statement, hingga latihan mock interview.</p>
+        </div>
       </div>
 
-      <ul class="prog-list">
+      <!-- Program Scholarship -->
+      <span class="prog-group-label">Program Scholarship</span>
+      <div class="price-card-grid price-card-grid-3">
 
-        <li class="prog-item">
-          <button class="prog-item-header">
-            <div class="prog-item-left">
-              <div>
-                <div class="prog-item-name">Single Session</div>
-                <div class="prog-item-meta">1 Jam · Private Mentoring · Essay Review atau Mock Interview</div>
-              </div>
-            </div>
-            <div class="prog-item-right">
-              <div class="prog-item-price" style="font-size:17px;">Rp 200.000</div>
-              <div class="prog-chevron"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></div>
-            </div>
-          </button>
-          <div class="prog-item-body">
-            <div class="prog-body-inner">
-              <ul class="prog-features">
-                <li>1 jam private mentoring bersama tutor</li>
-                <li>Pilih fokus: Essay Review atau Mock Interview</li>
-                <li>Feedback langsung dan terstruktur</li>
-              </ul>
-              <div class="prog-cta-box">
-                <div class="prog-price-detail">
-                  <div class="prog-price-label">Harga</div>
-                  <div class="prog-promo-price no-strike">Rp 200.000</div>
-                </div>
-                <a class="btn btn-outline btn-block" href="https://tutory-english.github.io/RegistrationForm/" target="_blank" rel="noopener">Daftar Sekarang</a>
-              </div>
-            </div>
+        <div class="price-card">
+          <div class="price-card-header">
+            <span class="price-card-badge">Basic Class</span>
+            <span class="price-card-price-original">Rp 3.550.600</span>
+            <div class="price-card-price-main">Rp 2.699.000</div>
+            <div class="price-card-meta">15 Jam IELTS · 1 Meeting Scholarship</div>
           </div>
-        </li>
-
-        <li class="prog-item">
-          <button class="prog-item-header">
-            <div class="prog-item-left">
-              <div>
-                <div class="prog-item-name">Standard Package</div>
-                <div class="prog-item-meta">5 Jam · Private Mentoring · Essay &amp; Interview</div>
-              </div>
-              <span class="prog-item-badge badge-blue">Paling Populer</span>
-            </div>
-            <div class="prog-item-right">
-              <div class="prog-item-price" style="font-size:17px;">Rp 985.000</div>
-              <div class="prog-chevron"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></div>
-            </div>
-          </button>
-          <div class="prog-item-body">
-            <div class="prog-body-inner">
-              <ul class="prog-features">
-                <li>5 jam private mentoring (fleksibel untuk essay checking dan interview preparation)</li>
-                <li>Bisa digunakan untuk kombinasi essay review dan mock interview</li>
-                <li>Jadwal fleksibel sesuai ketersediaanmu</li>
-                <li>Feedback terstruktur di setiap sesi</li>
-              </ul>
-              <div class="prog-cta-box">
-                <div class="prog-price-detail">
-                  <div class="prog-price-label">Harga</div>
-                  <div class="prog-promo-price no-strike">Rp 985.000</div>
-                </div>
-                <a class="btn btn-primary btn-block" href="https://tutory-english.github.io/RegistrationForm/" target="_blank" rel="noopener">Daftar Sekarang</a>
-              </div>
-            </div>
+          <div class="price-card-body">
+            <a class="btn-dark" href="https://tutory-english.github.io/RegistrationForm/" target="_blank" rel="noopener">Daftar Sekarang</a>
+            <ul class="price-features">
+              <li>Kelas IELTS privat 15 jam (4 skill)</li>
+              <li>1x sesi scholarship preparation (essay consultation)</li>
+              <li>Free 1x pre test, 1x final test, 1 post test</li>
+              <li>Writing correction &amp; speaking mock with feedback</li>
+              <li>Free detailed progress report</li>
+              <li>Flexible time arrangement</li>
+            </ul>
+            <a class="price-card-link" href="class-ielts-scholarship-non-chevening.html">More About the Class →</a>
           </div>
-        </li>
+        </div>
 
-        <li class="prog-item">
-          <button class="prog-item-header">
-            <div class="prog-item-left">
-              <div>
-                <div class="prog-item-name">Intensive Package</div>
-                <div class="prog-item-meta">10 Jam · Private Mentoring · Comprehensive Coaching</div>
-              </div>
-            </div>
-            <div class="prog-item-right">
-              <div class="prog-item-price" style="font-size:17px;">Rp 1.800.000</div>
-              <div class="prog-chevron"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></div>
-            </div>
-          </button>
-          <div class="prog-item-body">
-            <div class="prog-body-inner">
-              <ul class="prog-features">
-                <li>10 jam private mentoring komprehensif</li>
-                <li>Essay guidance menyeluruh: dari draft awal hingga finalisasi</li>
-                <li>Interview coaching intensif dengan simulasi dan feedback</li>
-                <li>Jadwal fleksibel sesuai ketersediaanmu</li>
-              </ul>
-              <div class="prog-cta-box">
-                <div class="prog-price-detail">
-                  <div class="prog-price-label">Harga</div>
-                  <div class="prog-promo-price no-strike">Rp 1.800.000</div>
-                </div>
-                <a class="btn btn-outline btn-block" href="https://tutory-english.github.io/RegistrationForm/" target="_blank" rel="noopener">Daftar Sekarang</a>
-              </div>
-            </div>
+        <div class="price-card">
+          <div class="price-card-header">
+            <span class="price-card-badge">Exclusive Class · Paling Populer</span>
+            <span class="price-card-price-original">Rp 4.450.600</span>
+            <div class="price-card-price-main">Rp 3.380.000</div>
+            <div class="price-card-meta">15 Jam IELTS · 5 Meeting Scholarship</div>
           </div>
-        </li>
+          <div class="price-card-body">
+            <a class="btn-dark" href="https://tutory-english.github.io/RegistrationForm/" target="_blank" rel="noopener">Daftar Sekarang</a>
+            <ul class="price-features">
+              <li>Kelas IELTS privat 15 jam (4 skill)</li>
+              <li>5x sesi scholarship preparation (draft, revisi, finalisasi)</li>
+              <li>Free 1x pre test, 1x final test, 1 post test</li>
+              <li>Writing correction &amp; speaking mock with feedback</li>
+              <li>Free detailed progress report</li>
+              <li>Flexible time arrangement</li>
+            </ul>
+            <a class="price-card-link" href="class-ielts-scholarship-non-chevening.html">More About the Class →</a>
+          </div>
+        </div>
 
-      </ul>
+        <div class="price-card">
+          <div class="price-card-header">
+            <span class="price-card-badge">VIP Class</span>
+            <span class="price-card-price-original">Rp 5.350.600</span>
+            <div class="price-card-price-main">Rp 4.150.000</div>
+            <div class="price-card-meta">15 Jam IELTS · 10 Meeting Scholarship</div>
+          </div>
+          <div class="price-card-body">
+            <a class="btn-dark" href="https://tutory-english.github.io/RegistrationForm/" target="_blank" rel="noopener">Daftar Sekarang</a>
+            <ul class="price-features">
+              <li>Kelas IELTS privat (4 skill)</li>
+              <li>10x sesi scholarship preparation (pendampingan intensif essay)</li>
+              <li>Free 1x pre test, 1x final test, 1 post test</li>
+              <li>Writing correction &amp; speaking mock with feedback</li>
+              <li>Free detailed progress report</li>
+              <li>Flexible time arrangement</li>
+            </ul>
+            <a class="price-card-link" href="class-ielts-scholarship-non-chevening.html">More About the Class →</a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Essay & Interview -->
+      <span class="prog-group-label" style="margin-top:16px;display:inline-block;">Essay Checking &amp; Interview Preparation</span>
+      <div style="max-width:760px;margin:8px auto 20px;text-align:center;">
+        <p style="color:var(--muted);font-size:14.5px;line-height:1.7;margin:0;">Bimbingan personal one-on-one untuk memperkuat aplikasi beasiswamu — dari review essay, personal statement, hingga latihan mock interview.</p>
+      </div>
+      <div class="price-card-grid price-card-grid-3">
+
+        <div class="price-card">
+          <div class="price-card-header">
+            <span class="price-card-badge">Single Session</span>
+            <div class="price-card-price-main" style="margin-top:14px;">Rp 200.000</div>
+            <div class="price-card-meta">1 Jam · Private Mentoring</div>
+          </div>
+          <div class="price-card-body">
+            <a class="btn-dark" href="https://tutory-english.github.io/RegistrationForm/" target="_blank" rel="noopener">Daftar Sekarang</a>
+            <ul class="price-features">
+              <li>1 jam private mentoring bersama tutor</li>
+              <li>Pilih fokus: Essay Review atau Mock Interview</li>
+              <li>Feedback langsung dan terstruktur</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="price-card">
+          <div class="price-card-header">
+            <span class="price-card-badge">Standard Package · Paling Populer</span>
+            <div class="price-card-price-main" style="margin-top:14px;">Rp 985.000</div>
+            <div class="price-card-meta">5 Jam · Essay &amp; Interview</div>
+          </div>
+          <div class="price-card-body">
+            <a class="btn-dark" href="https://tutory-english.github.io/RegistrationForm/" target="_blank" rel="noopener">Daftar Sekarang</a>
+            <ul class="price-features">
+              <li>5 jam private mentoring fleksibel</li>
+              <li>Bisa kombinasi essay review + mock interview</li>
+              <li>Jadwal fleksibel sesuai ketersediaanmu</li>
+              <li>Feedback terstruktur di setiap sesi</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="price-card">
+          <div class="price-card-header">
+            <span class="price-card-badge">Intensive Package</span>
+            <div class="price-card-price-main" style="margin-top:14px;">Rp 1.800.000</div>
+            <div class="price-card-meta">10 Jam · Comprehensive Coaching</div>
+          </div>
+          <div class="price-card-body">
+            <a class="btn-dark" href="https://tutory-english.github.io/RegistrationForm/" target="_blank" rel="noopener">Daftar Sekarang</a>
+            <ul class="price-features">
+              <li>10 jam private mentoring komprehensif</li>
+              <li>Essay guidance dari draft awal hingga finalisasi</li>
+              <li>Interview coaching intensif dengan simulasi</li>
+              <li>Jadwal fleksibel sesuai ketersediaanmu</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
     </div><!-- /tab-scholarship -->
 
     <!-- ========================================================= -->
@@ -1003,116 +845,70 @@
     <!-- ========================================================= -->
     <div id="tab-general" class="prog-tab-content">
 
-      <!-- Intro -->
       <div style="max-width:760px;margin:0 auto 40px;text-align:center;">
         <h2 style="font-size:22px;margin-bottom:10px;">General English Private Class</h2>
-        <p style="color:var(--muted);font-size:15px;line-height:1.7;margin:0 0 14px;">Program General English dirancang untuk meningkatkan kemampuan bahasa Inggris secara menyeluruh, bukan untuk persiapan tes IELTS, melainkan untuk kebutuhan sehari-hari, profesional, atau akademik. Semua kelas bersifat privat dan kurikulum disesuaikan dengan tujuan dan level awal kamu.</p>
-        <p style="color:var(--muted);font-size:15px;line-height:1.7;margin:0;">Program ini cocok untuk kamu yang ingin <strong>lancar berkomunikasi dalam bahasa Inggris</strong>, baik untuk percakapan sehari-hari, kebutuhan kerja dan presentasi, maupun meningkatkan kepercayaan diri saat berbicara dengan orang asing.</p>
+        <p style="color:var(--muted);font-size:15px;line-height:1.7;margin:0 0 14px;">Program General English dirancang untuk meningkatkan kemampuan bahasa Inggris secara menyeluruh — bukan untuk persiapan tes IELTS, melainkan untuk kebutuhan sehari-hari, profesional, atau akademik. Semua kelas bersifat privat dan kurikulum disesuaikan dengan tujuan dan level awal kamu.</p>
+        <p style="color:var(--muted);font-size:15px;line-height:1.7;margin:0;">Cocok untuk kamu yang ingin <strong>lancar berkomunikasi dalam bahasa Inggris</strong>, baik untuk percakapan sehari-hari, kebutuhan kerja, maupun meningkatkan kepercayaan diri saat berbicara dengan orang asing.</p>
       </div>
 
       <span class="prog-group-label">General English Private Class</span>
-      <ul class="prog-list">
+      <div class="price-card-grid price-card-grid-3">
 
-        <li class="prog-item">
-          <button class="prog-item-header">
-            <div class="prog-item-left">
-              <div>
-                <div class="prog-item-name">General English</div>
-                <div class="prog-item-meta">20 Jam Sesi · Untuk 1–2 Orang</div>
-              </div>
-            </div>
-            <div class="prog-item-right">
-              <div class="prog-item-price" style="font-size:17px;">Rp 3.299.000<span style="font-size:12px;font-weight:400;"> /orang</span></div>
-              <div class="prog-chevron"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></div>
-            </div>
-          </button>
-          <div class="prog-item-body">
-            <div class="prog-body-inner">
-              <ul class="prog-features">
-                <li>Fokus pada 4 skill dasar: grammar, vocabulary, listening &amp; speaking</li>
-                <li>Cocok untuk pemula hingga level menengah</li>
-                <li>Materi disesuaikan kebutuhan harian/akademik</li>
-                <li>Free detailed progress report</li>
-              </ul>
-              <div class="prog-cta-box">
-                <div class="prog-price-detail">
-                  <div class="prog-price-label">Biaya</div>
-                  <div class="prog-promo-price no-strike" style="font-size:22px;">Rp 3.299.000<span style="font-size:13px">/orang</span></div>
-                </div>
-                <a class="btn btn-outline btn-block" href="https://tutory-english.github.io/RegistrationForm/" target="_blank" rel="noopener">Daftar Sekarang</a>
-                <a class="more-link" href="class-general-english.html">More About the Class →</a>
-              </div>
-            </div>
+        <div class="price-card">
+          <div class="price-card-header">
+            <span class="price-card-badge">General English</span>
+            <div class="price-card-price-main" style="margin-top:14px;">Rp 3.299.000<span style="font-size:14px;font-weight:500;"> /orang</span></div>
+            <div class="price-card-meta">20 Jam Sesi · Untuk 1–2 Orang</div>
           </div>
-        </li>
-
-        <li class="prog-item">
-          <button class="prog-item-header">
-            <div class="prog-item-left">
-              <div>
-                <div class="prog-item-name">Conversation English</div>
-                <div class="prog-item-meta">15 Jam Sesi · Untuk 1–2 Orang</div>
-              </div>
-            </div>
-            <div class="prog-item-right">
-              <div class="prog-item-price" style="font-size:17px;">Rp 1.899.000<span style="font-size:12px;font-weight:400;"> /orang</span></div>
-              <div class="prog-chevron"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></div>
-            </div>
-          </button>
-          <div class="prog-item-body">
-            <div class="prog-body-inner">
-              <ul class="prog-features">
-                <li>Fokus melatih speaking &amp; fluency lewat situasi percakapan nyata</li>
-                <li>Latihan interaktif dengan tutor, bukan hafalan teori</li>
-                <li>Cocok untuk persiapan interview, traveling, atau networking</li>
-                <li>Feedback pronunciation &amp; confidence building</li>
-              </ul>
-              <div class="prog-cta-box">
-                <div class="prog-price-detail">
-                  <div class="prog-price-label">Biaya</div>
-                  <div class="prog-promo-price no-strike" style="font-size:22px;">Rp 1.899.000<span style="font-size:13px">/orang</span></div>
-                </div>
-                <a class="btn btn-outline btn-block" href="https://tutory-english.github.io/RegistrationForm/" target="_blank" rel="noopener">Daftar Sekarang</a>
-                <a class="more-link" href="class-conversation-english.html">More About the Class →</a>
-              </div>
-            </div>
+          <div class="price-card-body">
+            <a class="btn-dark" href="https://tutory-english.github.io/RegistrationForm/" target="_blank" rel="noopener">Daftar Sekarang</a>
+            <ul class="price-features">
+              <li>Fokus pada 4 skill dasar: grammar, vocabulary, listening &amp; speaking</li>
+              <li>Cocok untuk pemula hingga level menengah</li>
+              <li>Materi disesuaikan kebutuhan harian/akademik</li>
+              <li>Free detailed progress report</li>
+            </ul>
+            <a class="price-card-link" href="class-general-english.html">More About the Class →</a>
           </div>
-        </li>
+        </div>
 
-        <li class="prog-item">
-          <button class="prog-item-header">
-            <div class="prog-item-left">
-              <div>
-                <div class="prog-item-name">Business English</div>
-                <div class="prog-item-meta">15 Jam Sesi · Untuk 1–2 Orang</div>
-              </div>
-            </div>
-            <div class="prog-item-right">
-              <div class="prog-item-price" style="font-size:17px;">Rp 1.899.000<span style="font-size:12px;font-weight:400;"> /orang</span></div>
-              <div class="prog-chevron"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></div>
-            </div>
-          </button>
-          <div class="prog-item-body">
-            <div class="prog-body-inner">
-              <ul class="prog-features">
-                <li>Fokus komunikasi profesional: email, presentasi &amp; meeting</li>
-                <li>Studi kasus &amp; roleplay sesuai kebutuhan industri</li>
-                <li>Cocok untuk profesional dan karyawan korporat</li>
-                <li>Feedback personal dari tutor</li>
-              </ul>
-              <div class="prog-cta-box">
-                <div class="prog-price-detail">
-                  <div class="prog-price-label">Biaya</div>
-                  <div class="prog-promo-price no-strike" style="font-size:22px;">Rp 1.899.000<span style="font-size:13px">/orang</span></div>
-                </div>
-                <a class="btn btn-outline btn-block" href="https://tutory-english.github.io/RegistrationForm/" target="_blank" rel="noopener">Daftar Sekarang</a>
-                <a class="more-link" href="class-business-english.html">More About the Class →</a>
-              </div>
-            </div>
+        <div class="price-card">
+          <div class="price-card-header">
+            <span class="price-card-badge">Conversation English</span>
+            <div class="price-card-price-main" style="margin-top:14px;">Rp 1.899.000<span style="font-size:14px;font-weight:500;"> /orang</span></div>
+            <div class="price-card-meta">15 Jam Sesi · Untuk 1–2 Orang</div>
           </div>
-        </li>
+          <div class="price-card-body">
+            <a class="btn-dark" href="https://tutory-english.github.io/RegistrationForm/" target="_blank" rel="noopener">Daftar Sekarang</a>
+            <ul class="price-features">
+              <li>Fokus melatih speaking &amp; fluency lewat percakapan nyata</li>
+              <li>Latihan interaktif dengan tutor, bukan hafalan teori</li>
+              <li>Cocok untuk interview, traveling, atau networking</li>
+              <li>Feedback pronunciation &amp; confidence building</li>
+            </ul>
+            <a class="price-card-link" href="class-conversation-english.html">More About the Class →</a>
+          </div>
+        </div>
 
-      </ul>
+        <div class="price-card">
+          <div class="price-card-header">
+            <span class="price-card-badge">Business English</span>
+            <div class="price-card-price-main" style="margin-top:14px;">Rp 1.899.000<span style="font-size:14px;font-weight:500;"> /orang</span></div>
+            <div class="price-card-meta">15 Jam Sesi · Untuk 1–2 Orang</div>
+          </div>
+          <div class="price-card-body">
+            <a class="btn-dark" href="https://tutory-english.github.io/RegistrationForm/" target="_blank" rel="noopener">Daftar Sekarang</a>
+            <ul class="price-features">
+              <li>Fokus komunikasi profesional: email, presentasi &amp; meeting</li>
+              <li>Studi kasus &amp; roleplay sesuai kebutuhan industri</li>
+              <li>Cocok untuk profesional dan karyawan korporat</li>
+              <li>Feedback personal dari tutor</li>
+            </ul>
+            <a class="price-card-link" href="class-business-english.html">More About the Class →</a>
+          </div>
+        </div>
+
+      </div>
       <div class="note-box">
         <strong>Catatan:</strong>
         <ul>
@@ -1144,102 +940,56 @@
       </div>
 
       <span class="prog-group-label">Pilih Paket</span>
-      <ul class="prog-list">
+      <div class="price-card-grid price-card-grid-3">
 
-        <li class="prog-item">
-          <button class="prog-item-header">
-            <div class="prog-item-left">
-              <div>
-                <div class="prog-item-name">IELTS by IDP</div>
-                <div class="prog-item-meta">Official Test</div>
-              </div>
-            </div>
-            <div class="prog-item-right">
-              <div class="prog-item-price" style="font-size:17px;">Rp 3.490.000</div>
-              <div class="prog-chevron"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></div>
-            </div>
-          </button>
-          <div class="prog-item-body">
-            <div class="prog-body-inner">
-              <ul class="prog-features">
-                <li>Registrasi resmi tes IELTS lewat IDP</li>
-                <li>Hasil resmi diakui untuk visa, studi &amp; kerja</li>
-              </ul>
-              <div class="prog-cta-box">
-                <div class="prog-price-detail">
-                  <div class="prog-price-label">Biaya</div>
-                  <div class="prog-promo-price no-strike">Rp 3.490.000</div>
-                </div>
-                <a class="btn btn-outline btn-block" href="https://tutory-english.github.io/RegistrationForm/" target="_blank" rel="noopener">Daftar Sekarang</a>
-              </div>
-            </div>
+        <div class="price-card">
+          <div class="price-card-header">
+            <span class="price-card-badge">IELTS by IDP</span>
+            <div class="price-card-price-main" style="margin-top:14px;">Rp 3.490.000</div>
+            <div class="price-card-meta">Official Test</div>
           </div>
-        </li>
-
-        <li class="prog-item">
-          <button class="prog-item-header">
-            <div class="prog-item-left">
-              <div>
-                <div class="prog-item-name">Prep Class + IELTS by IDP</div>
-                <div class="prog-item-meta">5 Jam Prep + Official Test</div>
-              </div>
-              <span class="prog-item-badge badge-blue">⭐ Populer</span>
-            </div>
-            <div class="prog-item-right">
-              <div class="prog-item-price" style="font-size:17px;">Rp 4.190.000</div>
-              <div class="prog-chevron"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></div>
-            </div>
-          </button>
-          <div class="prog-item-body">
-            <div class="prog-body-inner">
-              <ul class="prog-features">
-                <li>5 jam preparation class privat</li>
-                <li>Registrasi resmi tes IELTS lewat IDP</li>
-                <li>Hasil resmi diakui untuk visa, studi &amp; kerja</li>
-              </ul>
-              <div class="prog-cta-box">
-                <div class="prog-price-detail">
-                  <div class="prog-price-label">Biaya</div>
-                  <div class="prog-promo-price no-strike">Rp 4.190.000</div>
-                </div>
-                <a class="btn btn-primary btn-block" href="https://tutory-english.github.io/RegistrationForm/" target="_blank" rel="noopener">Daftar Sekarang</a>
-              </div>
-            </div>
+          <div class="price-card-body">
+            <a class="btn-dark" href="https://tutory-english.github.io/RegistrationForm/" target="_blank" rel="noopener">Daftar Sekarang</a>
+            <ul class="price-features">
+              <li>Registrasi resmi tes IELTS lewat IDP</li>
+              <li>Hasil resmi diakui untuk visa, studi &amp; kerja</li>
+            </ul>
           </div>
-        </li>
+        </div>
 
-        <li class="prog-item">
-          <button class="prog-item-header">
-            <div class="prog-item-left">
-              <div>
-                <div class="prog-item-name">Prep Class + IELTS by IDP</div>
-                <div class="prog-item-meta">10 Jam Prep + Official Test</div>
-              </div>
-            </div>
-            <div class="prog-item-right">
-              <div class="prog-item-price" style="font-size:17px;">Rp 6.990.000</div>
-              <div class="prog-chevron"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></div>
-            </div>
-          </button>
-          <div class="prog-item-body">
-            <div class="prog-body-inner">
-              <ul class="prog-features">
-                <li>10 jam preparation class privat</li>
-                <li>Registrasi resmi tes IELTS lewat IDP</li>
-                <li>Hasil resmi diakui untuk visa, studi &amp; kerja</li>
-              </ul>
-              <div class="prog-cta-box">
-                <div class="prog-price-detail">
-                  <div class="prog-price-label">Biaya</div>
-                  <div class="prog-promo-price no-strike">Rp 6.990.000</div>
-                </div>
-                <a class="btn btn-outline btn-block" href="https://tutory-english.github.io/RegistrationForm/" target="_blank" rel="noopener">Daftar Sekarang</a>
-              </div>
-            </div>
+        <div class="price-card">
+          <div class="price-card-header">
+            <span class="price-card-badge">Prep Class + IELTS by IDP · ⭐ Populer</span>
+            <div class="price-card-price-main" style="margin-top:14px;">Rp 4.190.000</div>
+            <div class="price-card-meta">5 Jam Prep + Official Test</div>
           </div>
-        </li>
+          <div class="price-card-body">
+            <a class="btn-dark" href="https://tutory-english.github.io/RegistrationForm/" target="_blank" rel="noopener">Daftar Sekarang</a>
+            <ul class="price-features">
+              <li>5 jam preparation class privat</li>
+              <li>Registrasi resmi tes IELTS lewat IDP</li>
+              <li>Hasil resmi diakui untuk visa, studi &amp; kerja</li>
+            </ul>
+          </div>
+        </div>
 
-      </ul>
+        <div class="price-card">
+          <div class="price-card-header">
+            <span class="price-card-badge">Prep Class + IELTS by IDP</span>
+            <div class="price-card-price-main" style="margin-top:14px;">Rp 6.990.000</div>
+            <div class="price-card-meta">10 Jam Prep + Official Test</div>
+          </div>
+          <div class="price-card-body">
+            <a class="btn-dark" href="https://tutory-english.github.io/RegistrationForm/" target="_blank" rel="noopener">Daftar Sekarang</a>
+            <ul class="price-features">
+              <li>10 jam preparation class privat</li>
+              <li>Registrasi resmi tes IELTS lewat IDP</li>
+              <li>Hasil resmi diakui untuk visa, studi &amp; kerja</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
     </div><!-- /tab-official-test -->
 
   </div>
@@ -1339,35 +1089,6 @@
 
 <script src="assets/js/main.js"></script>
 <script>
-  // ---- Promo 17-AN Countdown ----
-  (function(){
-    var deadline = new Date('2026-08-17T23:59:59+07:00').getTime();
-    var banner = document.getElementById('promo17-banner');
-    function pad(n){ return n < 10 ? '0'+n : n; }
-    function tick(){
-      var now = Date.now();
-      var diff = deadline - now;
-      if(diff <= 0){
-        if(banner) banner.style.display = 'none';
-        return;
-      }
-      var d = Math.floor(diff / 86400000);
-      var h = Math.floor((diff % 86400000) / 3600000);
-      var m = Math.floor((diff % 3600000) / 60000);
-      var s = Math.floor((diff % 60000) / 1000);
-      var cd = document.getElementById('cd-d');
-      var ch = document.getElementById('cd-h');
-      var cm = document.getElementById('cd-m');
-      var cs = document.getElementById('cd-s');
-      if(cd) cd.textContent = pad(d);
-      if(ch) ch.textContent = pad(h);
-      if(cm) cm.textContent = pad(m);
-      if(cs) cs.textContent = pad(s);
-    }
-    tick();
-    setInterval(tick, 1000);
-  })();
-
   // Tab switching
   document.querySelectorAll('.prog-tab-btn').forEach(function(btn) {
     btn.addEventListener('click', function() {
