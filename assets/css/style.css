@@ -520,7 +520,8 @@ section { padding: 88px 0; }
 .step-card p { font-size: 14.5px; }
 
 /* ---------- Team (widened) ---------- */
-#team .container { max-width: 1320px; }
+#team .container { max-width: 1440px; }
+#team .grid-4 { gap: 20px; }
 
 .team-card {
   background: #fff;

@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Partnership — Tutory English</title>
+<meta name="description" content="Program kemitraan Tutory English untuk perusahaan dan sekolah. Solusi pelatihan bahasa Inggris dan persiapan IELTS yang dirancang khusus.">
+<link rel="icon" href="assets/img/favicon.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+<style>
+
+/* ===== HERO PARTNERSHIP ===== */
+.partner-hero {
+  background: linear-gradient(135deg, rgba(13,27,62,.88) 0%, rgba(47,97,246,.80) 100%),
+              url('assets/img/partnership-hero-bg.jpg') center/cover no-repeat;
+  padding: 90px 0 80px;
+  position: relative;
+  overflow: hidden;
+}
+.partner-hero::before {
+  content: '';
+  position: absolute;
+  top: -120px; right: -120px;
+  width: 500px; height: 500px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.04);
+}
+.partner-hero::after {
+  content: '';
+  position: absolute;
+  bottom: -80px; left: -80px;
+  width: 300px; height: 300px;
+  border-radius: 50%;
+  background: rgba(245,158,11,.06);
+}
+.partner-hero-inner {
+  max-width: 780px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  padding: 0 24px;
+}
+.partner-hero .eyebrow {
+  background: rgba(255,255,255,.12);
+  color: rgba(255,255,255,.9);
+  border-radius: 50px;
+  padding: 6px 18px;
+  font-size: 12px;
+  font-weight: 700;
+  display: inline-block;
+  margin-bottom: 20px;
+  letter-spacing: .5px;
+}
+.partner-hero h1 {
+  font-size: clamp(28px, 4vw, 50px);
+  color: #fff;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 18px;
+}
+.partner-hero h1 .hl { color: #f59e0b; }
+.partner-hero .lead {
+  color: rgba(255,255,255,.75);
+  font-size: 16px;
+  line-height: 1.8;
+  margin-bottom: 36px;
+  max-width: 580px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.partner-hero-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+.partner-hero-btns a {
+  padding: 14px 28px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 14px;
+  text-decoration: none;
+  transition: all .2s;
+}
+.btn-partner-main { background: #f59e0b; color: #0a1535; }
+.btn-partner-main:hover { background: #fbbf24; }
+.btn-partner-ghost { background: rgba(255,255,255,.1); color: #fff; border: 1.5px solid rgba(255,255,255,.3); }
+.btn-partner-ghost:hover { background: rgba(255,255,255,.2); }
+
+/* ===== STAT BAR ===== */
+.partner-stats {
+  background: #fff;
+  border-bottom: 1px solid #e2e8f0;
+}
+.partner-stats-inner {
+  display: flex;
+  justify-content: center;
+  gap: 0;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.pstat {
+  flex: 1;
+  text-align: center;
+  padding: 28px 20px;
+  border-right: 1px solid #e2e8f0;
+}
+.pstat:last-child { border-right: none; }
+.pstat-num {
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--primary, #2f61f6);
+  line-height: 1;
+  margin-bottom: 6px;
+}
+.pstat-lbl { font-size: 13px; color: #64748b; line-height: 1.4; }
+
+/* ===== SECTION HEADERS ===== */
+.sec-head {
+  text-align: center;
+  margin-bottom: 48px;
+}
+.sec-head .eyebrow {
+  font-size: 11.5px;
+  font-weight: 700;
+  color: var(--primary, #2f61f6);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+.sec-head h2 { font-size: clamp(22px, 3vw, 36px); margin: 0 0 10px; color: #0f172a; }
+.sec-head p { color: #64748b; font-size: 15px; max-width: 560px; margin: 0 auto; }
+
+/* ===== KOLABORASI CAROUSEL ===== */
+.collab-section { padding: 72px 0; background: var(--bg-soft, #f8f9fb); }
+
+.collab-track-wrap {
+  position: relative;
+  overflow: hidden;
+}
+/* fade edges */
+.collab-track-wrap::before,
+.collab-track-wrap::after {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 80px;
+  z-index: 2;
+  pointer-events: none;
+}
+.collab-track-wrap::before { left: 0; background: linear-gradient(to right, #f8f9fb, transparent); }
+.collab-track-wrap::after  { right: 0; background: linear-gradient(to left,  #f8f9fb, transparent); }
+
+.collab-track {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding: 12px 60px;
+  cursor: grab;
+  user-select: none;
+}
+.collab-track::-webkit-scrollbar { display: none; }
+.collab-track.grabbing { cursor: grabbing; }
+
+.collab-logo-item {
+  flex-shrink: 0;
+  width: 160px;
+  height: 90px;
+  background: #fff;
+  border-radius: 16px;
+  border: 1.5px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 20px;
+  transition: box-shadow .22s, transform .22s, border-color .22s;
+}
+.collab-logo-item:hover {
+  box-shadow: 0 8px 28px rgba(47,97,246,.15);
+  border-color: var(--primary, #2f61f6);
+  transform: translateY(-3px);
+}
+.collab-logo-item img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+/* arrow buttons */
+.collab-nav {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 24px;
+}
+.collab-arrow {
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  border: 2px solid #e2e8f0;
+  background: #fff;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: all .2s;
+}
+.collab-arrow:hover {
+  background: var(--primary, #2f61f6);
+  border-color: var(--primary, #2f61f6);
+}
+.collab-arrow:hover svg { stroke: #fff; }
+.collab-arrow svg { width: 18px; height: 18px; stroke: #64748b; fill: none; stroke-width: 2.5; transition: stroke .2s; }
+
+/* ===== PROGRAMS TABS ===== */
+.prog-section { padding: 80px 0; }
+.prog-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 48px;
+  flex-wrap: wrap;
+}
+.prog-tab-btn {
+  padding: 10px 28px;
+  border-radius: 50px;
+  border: 2px solid #e2e8f0;
+  background: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  color: #64748b;
+  cursor: pointer;
+  transition: all .2s;
+}
+.prog-tab-btn.active, .prog-tab-btn:hover {
+  background: var(--primary, #2f61f6);
+  border-color: var(--primary, #2f61f6);
+  color: #fff;
+}
+.prog-tab-content { display: none; }
+.prog-tab-content.active { display: block; }
+
+/* program header banner */
+.prog-banner {
+  background: linear-gradient(135deg, #0d1b3e 0%, #2f61f6 100%);
+  border-radius: 20px;
+  padding: 40px 48px;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+.prog-banner-icon {
+  width: 72px; height: 72px;
+  border-radius: 18px;
+  background: rgba(255,255,255,.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.prog-banner-icon svg { width: 36px; height: 36px; stroke: #fff; fill: none; stroke-width: 1.8; }
+.prog-banner-text h2 { font-size: 24px; font-weight: 800; color: #fff; margin: 0 0 8px; }
+.prog-banner-text p { color: rgba(255,255,255,.75); font-size: 14.5px; line-height: 1.7; margin: 0; }
+
+/* program cards grid */
+.prog-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-bottom: 36px;
+}
+.prog-card {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 4px 20px rgba(0,0,0,.07);
+  overflow: hidden;
+  transition: transform .22s, box-shadow .22s;
+  display: flex;
+  flex-direction: column;
+}
+.prog-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 36px rgba(47,97,246,.15);
+}
+.prog-card-header {
+  padding: 22px 24px 18px;
+  background: var(--primary-light, #eef2ff);
+  border-bottom: 1px solid #e0e7ff;
+  transition: background .25s;
+}
+.prog-card:hover .prog-card-header {
+  background: linear-gradient(135deg, #2f61f6 0%, #4f7cf8 100%);
+}
+.prog-card-header .pch-icon {
+  width: 44px; height: 44px;
+  border-radius: 12px;
+  background: rgba(47,97,246,.12);
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 12px;
+  transition: background .25s;
+}
+.prog-card:hover .pch-icon { background: rgba(255,255,255,.2); }
+.prog-card-header .pch-icon svg { width: 22px; height: 22px; stroke: var(--primary,#2f61f6); fill: none; stroke-width: 2; transition: stroke .25s; }
+.prog-card:hover .pch-icon svg { stroke: #fff; }
+.prog-card-header h3 { font-size: 15.5px; font-weight: 800; color: #0f172a; margin: 0; transition: color .25s; }
+.prog-card:hover .prog-card-header h3 { color: #fff; }
+.prog-card-body { padding: 20px 24px 24px; flex: 1; }
+.prog-card-body p { font-size: 13.5px; color: #64748b; line-height: 1.75; margin-bottom: 14px; }
+.prog-features { list-style: none; padding: 0; margin: 0; }
+.prog-features li {
+  display: flex; align-items: flex-start; gap: 8px;
+  font-size: 13px; color: #475569;
+  margin-bottom: 8px; line-height: 1.5;
+}
+.prog-features li::before {
+  content: '✓';
+  flex-shrink: 0;
+  width: 18px; height: 18px;
+  border-radius: 50%;
+  background: var(--primary-light, #eef2ff);
+  color: var(--primary, #2f61f6);
+  font-size: 11px;
+  font-weight: 800;
+  display: flex; align-items: center; justify-content: center;
+  margin-top: 1px;
+}
+
+/* CTA inside prog */
+.prog-cta-box {
+  background: var(--bg-soft, #f8f9fb);
+  border-radius: 16px;
+  padding: 28px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+  border: 1.5px solid #e2e8f0;
+}
+.prog-cta-box h4 { font-size: 17px; font-weight: 800; color: #0f172a; margin: 0 0 4px; }
+.prog-cta-box p { font-size: 13.5px; color: #64748b; margin: 0; }
+.prog-cta-box a {
+  flex-shrink: 0;
+  padding: 12px 24px;
+  border-radius: 50px;
+  background: var(--primary, #2f61f6);
+  color: #fff;
+  font-weight: 700;
+  font-size: 13.5px;
+  text-decoration: none;
+  transition: opacity .15s;
+  white-space: nowrap;
+}
+.prog-cta-box a:hover { opacity: .85; }
+
+/* ===== PROCESS SECTION ===== */
+.process-section { padding: 72px 0; background: var(--bg-soft, #f8f9fb); }
+.process-steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  position: relative;
+}
+.process-steps::before {
+  content: '';
+  position: absolute;
+  top: 28px; left: 10%; right: 10%;
+  height: 2px;
+  background: #e2e8f0;
+  z-index: 0;
+}
+.process-step {
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+.ps-num {
+  width: 56px; height: 56px;
+  border-radius: 50%;
+  background: var(--primary, #2f61f6);
+  color: #fff;
+  font-size: 20px;
+  font-weight: 800;
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 16px;
+  box-shadow: 0 4px 16px rgba(47,97,246,.3);
+}
+.ps-title { font-size: 14px; font-weight: 700; color: #0f172a; margin-bottom: 6px; }
+.ps-desc { font-size: 12.5px; color: #64748b; line-height: 1.65; }
+
+/* ===== CTA BAND ===== */
+.partner-cta { padding: 80px 0; }
+.partner-cta-band {
+  background: linear-gradient(135deg, #0d1b3e 0%, #2f61f6 100%);
+  border-radius: 24px;
+  padding: 56px 60px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.partner-cta-band::before {
+  content: '';
+  position: absolute;
+  top: -60px; right: -60px;
+  width: 280px; height: 280px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.05);
+}
+.partner-cta-band h2 { font-size: clamp(22px, 3vw, 34px); color: #fff; font-weight: 800; margin: 0 0 12px; }
+.partner-cta-band p { color: rgba(255,255,255,.75); font-size: 15px; margin: 0 0 32px; max-width: 500px; margin-left: auto; margin-right: auto; }
+.partner-cta-band .btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+.partner-cta-band .btns a {
+  padding: 14px 28px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 14px;
+  text-decoration: none;
+  transition: all .2s;
+}
+.btn-cta-main { background: #f59e0b; color: #0a1535; }
+.btn-cta-main:hover { background: #fbbf24; }
+.btn-cta-ghost { background: rgba(255,255,255,.1); color: #fff; border: 1.5px solid rgba(255,255,255,.3); }
+.btn-cta-ghost:hover { background: rgba(255,255,255,.2); }
+
+
+</style>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header">
+  <div class="nav-wrap">
+    <a href="index.html" class="brand"><img src="assets/img/tutory-logo.png" alt="Tutory English logo">Tutory English</a>
+    <ul class="nav-links">
+      <li><a href="index.html#home">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="programs.html">Programs &amp; Pricing</a></li>
+      <li><a href="learning-tools.html">Learning Tools</a></li>
+      <li><a href="partnership.html" class="active">Partnership</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a class="btn btn-outline" href="https://wa.me/6287762013051?text=Halo%20kak%2C%20saya%20mau%20tanya%20tentang%20program%20partnership%20Tutory%20English" target="_blank" rel="noopener">Chat Admin</a>
+      <a class="btn btn-primary" href="https://wa.me/6287762013051?text=Halo%20kak%2C%20saya%20tertarik%20dengan%20program%20partnership%20Tutory%20English" target="_blank" rel="noopener">Hubungi Kami</a>
+      <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="partner-hero">
+  <div class="partner-hero-inner">
+    <span class="eyebrow">🤝 Program Kemitraan</span>
+    <h1>Partnership Tutory English<br>dengan <span class="hl">Institusi Terkemuka</span></h1>
+    <p class="lead">Kami menawarkan program pelatihan bahasa Inggris dan persiapan IELTS yang dirancang khusus untuk perusahaan dan sekolah — fleksibel, terstruktur, dan dapat dikustomisasi sesuai kebutuhan.</p>
+    <div class="partner-hero-btns">
+      <a href="#programs" class="btn-partner-main">Lihat Program</a>
+      <a href="https://wa.me/6287762013051?text=Halo%20kak%2C%20saya%20tertarik%20dengan%20program%20partnership%20Tutory%20English" target="_blank" rel="noopener" class="btn-partner-ghost">Diskusi Partnership</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STATS ============ -->
+<div class="partner-stats">
+  <div class="partner-stats-inner">
+    <div class="pstat">
+      <div class="pstat-num">1000+</div>
+      <div class="pstat-lbl">Siswa Telah<br>Dibimbing</div>
+    </div>
+    <div class="pstat">
+      <div class="pstat-num">50+</div>
+      <div class="pstat-lbl">Alumni Masuk<br>Kampus Internasional</div>
+    </div>
+    <div class="pstat">
+      <div class="pstat-num">3</div>
+      <div class="pstat-lbl">Institusi Mitra<br>Terpercaya</div>
+    </div>
+    <div class="pstat">
+      <div class="pstat-num">7.0+</div>
+      <div class="pstat-lbl">Rata-rata Band<br>Score IELTS</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ KOLABORASI ============ -->
+<section class="collab-section">
+  <div class="container">
+    <div class="sec-head">
+      <div class="eyebrow">Mitra Kami</div>
+      <h2>Kolaborasi Tutory English</h2>
+      <p>Bermitra dengan institusi terpercaya untuk menghadirkan pengalaman belajar terbaik bagi setiap siswa.</p>
+    </div>
+
+    <div class="collab-track-wrap">
+      <div class="collab-track" id="collabTrack">
+
+        <!-- IDP Indonesia -->
+        <div class="collab-logo-item">
+          <img src="assets/img/idp-logo.png" alt="IDP Indonesia" style="max-width:130px;max-height:72px;"
+            onerror="this.replaceWith(Object.assign(document.createElement('span'),{textContent:'IDP',style:'font-size:22px;font-weight:900;color:#c8102e;letter-spacing:1px'}))">
+        </div>
+
+        <!-- Titik Balik -->
+        <div class="collab-logo-item">
+          <img src="assets/img/titikbalik-logo.png" alt="Titik Balik Academy"
+            onerror="this.replaceWith(Object.assign(document.createElement('span'),{textContent:'Titik Balik',style:'font-size:14px;font-weight:900;color:#2f61f6;text-align:center;line-height:1.3'}))">
+        </div>
+
+        <!-- BOS Foundation -->
+        <div class="collab-logo-item">
+          <img src="assets/img/bos-logo.png" alt="BOS Foundation">
+        </div>
+
+        <!-- IPEKA -->
+        <div class="collab-logo-item">
+          <img src="assets/img/ipeka-logo.png" alt="IPEKA">
+        </div>
+
+      </div>
+    </div>
+
+    <div class="collab-nav">
+      <button class="collab-arrow" onclick="scrollCollab(-1)" aria-label="Prev">
+        <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
+      <button class="collab-arrow" onclick="scrollCollab(1)" aria-label="Next">
+        <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROGRAMS ============ -->
+<section class="prog-section" id="programs">
+  <div class="container">
+    <div class="sec-head">
+      <div class="eyebrow">Program Kemitraan</div>
+      <h2>Solusi Pelatihan untuk Setiap Institusi</h2>
+      <p>Program kami dapat dikustomisasi penuh sesuai kebutuhan, jadwal, dan tujuan organisasi Anda.</p>
+    </div>
+
+    <!-- TAB BUTTONS -->
+    <div class="prog-tabs">
+      <button class="prog-tab-btn active" onclick="switchProgTab('corporate', this)">
+        🏢 Corporate Program
+      </button>
+      <button class="prog-tab-btn" onclick="switchProgTab('school', this)">
+        🏫 School Program
+      </button>
+    </div>
+
+    <!-- TAB: CORPORATE -->
+    <div class="prog-tab-content active" id="tab-corporate">
+
+      <div class="prog-banner">
+        <div class="prog-banner-icon">
+          <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
+        </div>
+        <div class="prog-banner-text">
+          <h2>Corporate English Training</h2>
+          <p>Program pelatihan bahasa Inggris profesional yang dirancang khusus untuk meningkatkan kompetensi karyawan Anda — mulai dari komunikasi bisnis sehari-hari hingga persiapan tes IELTS untuk promosi atau visa kerja.</p>
+        </div>
+      </div>
+
+      <div class="prog-cards-grid">
+
+        <div class="prog-card">
+          <div class="prog-card-header">
+            <div class="pch-icon">
+              <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <h3>Business English Communication</h3>
+          </div>
+          <div class="prog-card-body">
+            <p>Program komunikasi bisnis profesional yang mencakup keterampilan presentasi, negosiasi, penulisan email formal, dan rapat dalam bahasa Inggris.</p>
+            <ul class="prog-features">
+              <li>Business writing: email, report, proposal</li>
+              <li>Presentation & public speaking skills</li>
+              <li>Meeting facilitation & negotiation</li>
+              <li>Professional vocabulary & tone</li>
+              <li>Kelas online via Zoom, on-site, atau hybrid</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="prog-card">
+          <div class="prog-card-header">
+            <div class="pch-icon">
+              <svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+            </div>
+            <h3>IELTS Corporate Package</h3>
+          </div>
+          <div class="prog-card-body">
+            <p>Persiapan IELTS terstruktur untuk karyawan yang membutuhkan sertifikasi IELTS untuk keperluan visa, promosi jabatan, atau studi lanjut.</p>
+            <ul class="prog-features">
+              <li>Target band score yang disesuaikan per karyawan</li>
+              <li>Sesi privat & grup kecil (maks. 6 orang)</li>
+              <li>Latihan 4 skill: Listening, Reading, Writing, Speaking</li>
+              <li>Mock test & analisis hasil secara berkala</li>
+              <li>Integrasi dengan pendaftaran tes resmi IDP IELTS</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="prog-card">
+          <div class="prog-card-header">
+            <div class="pch-icon">
+              <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+            </div>
+            <h3>Customized In-House Training</h3>
+          </div>
+          <div class="prog-card-body">
+            <p>Program pelatihan yang sepenuhnya dikustomisasi sesuai industri, kebutuhan spesifik, dan jadwal perusahaan Anda — dapat diselenggarakan di kantor atau secara online.</p>
+            <ul class="prog-features">
+              <li>Needs analysis & curriculum design khusus</li>
+              <li>Materi disesuaikan dengan industri (finance, healthcare, tech, dll.)</li>
+              <li>Fleksibel: jadwal pagi, siang, atau malam</li>
+              <li>Progress report berkala untuk HR/manajemen</li>
+              <li>Sertifikat kelulusan resmi Tutory English</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="prog-card">
+          <div class="prog-card-header">
+            <div class="pch-icon">
+              <svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+            </div>
+            <h3>English Proficiency Assessment</h3>
+          </div>
+          <div class="prog-card-body">
+            <p>Layanan asesmen kemampuan bahasa Inggris untuk keperluan seleksi, rekrutmen, atau evaluasi tahunan karyawan secara terstruktur dan terukur.</p>
+            <ul class="prog-features">
+              <li>Pre-employment English screening</li>
+              <li>Level assessment: Beginner to Advanced</li>
+              <li>Laporan hasil per individu & rekomendasi program</li>
+              <li>Tes dapat dilakukan secara online atau on-site</li>
+              <li>Konsultasi hasil bersama tim HR</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="prog-cta-box">
+        <div>
+          <h4>Tertarik dengan Corporate Program?</h4>
+          <p>Hubungi kami untuk konsultasi gratis dan penawaran yang disesuaikan dengan kebutuhan perusahaan Anda.</p>
+        </div>
+        <a href="https://wa.me/6287762013051?text=Halo%20kak%2C%20saya%20tertarik%20dengan%20Corporate%20Program%20Tutory%20English.%20Bisa%20konsultasi%3F" target="_blank" rel="noopener">Hubungi Sekarang →</a>
+      </div>
+
+    </div>
+
+    <!-- TAB: SCHOOL -->
+    <div class="prog-tab-content" id="tab-school">
+
+      <div class="prog-banner">
+        <div class="prog-banner-icon">
+          <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <div class="prog-banner-text">
+          <h2>School English Program</h2>
+          <p>Program bahasa Inggris yang dirancang khusus untuk siswa SMP dan SMA — dari penguatan English Academic hingga persiapan IELTS untuk beasiswa, dengan metode yang menyenangkan dan terstruktur.</p>
+        </div>
+      </div>
+
+      <div class="prog-cards-grid">
+
+        <div class="prog-card">
+          <div class="prog-card-header">
+            <div class="pch-icon">
+              <svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+            </div>
+            <h3>Academic English for Students</h3>
+          </div>
+          <div class="prog-card-body">
+            <p>Program English for Academic Purposes (EAP) yang mempersiapkan siswa SMA untuk lingkungan perkuliahan berbahasa Inggris — baik di dalam maupun luar negeri.</p>
+            <ul class="prog-features">
+              <li>Academic writing: essay, argumentative, report</li>
+              <li>Critical reading & comprehension</li>
+              <li>Academic vocabulary building</li>
+              <li>Presentation & discussion skills</li>
+              <li>Blended learning: Zoom + materi mandiri</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="prog-card">
+          <div class="prog-card-header">
+            <div class="pch-icon">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
+            </div>
+            <h3>IELTS School Package</h3>
+          </div>
+          <div class="prog-card-body">
+            <p>Paket IELTS group class eksklusif untuk siswa sekolah yang menargetkan beasiswa luar negeri — dengan mentor bersertifikat IELTS 8.0 dan kurikulum terstruktur.</p>
+            <ul class="prog-features">
+              <li>Group class maks. 8 siswa per sesi</li>
+              <li>Kurikulum 4 skill IELTS lengkap</li>
+              <li>Simulasi tes & analisis hasil</li>
+              <li>Materi khusus essay beasiswa Chevening, LPDP, AAS</li>
+              <li>Koordinasi pendaftaran tes resmi IDP IELTS</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="prog-card">
+          <div class="prog-card-header">
+            <div class="pch-icon">
+              <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <h3>Scholarship Prep Program</h3>
+          </div>
+          <div class="prog-card-body">
+            <p>Program persiapan beasiswa komprehensif — mencakup persiapan IELTS, penulisan essay beasiswa, dan simulasi wawancara untuk Chevening, LPDP, Australia Awards, dan lainnya.</p>
+            <ul class="prog-features">
+              <li>IELTS prep + scholarship essay writing</li>
+              <li>Wawancara mock interview dengan mentor</li>
+              <li>Kolaborasi dengan Titik Balik Academy</li>
+              <li>Portofolio aplikasi beasiswa lengkap</li>
+              <li>Mentoring personal hingga pengumuman hasil</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="prog-card">
+          <div class="prog-card-header">
+            <div class="pch-icon">
+              <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg>
+            </div>
+            <h3>Teacher Development Workshop</h3>
+          </div>
+          <div class="prog-card-body">
+            <p>Workshop pengembangan guru bahasa Inggris sekolah — membekali tenaga pengajar dengan metode, strategi, dan materi IELTS terkini yang efektif dan menyenangkan.</p>
+            <ul class="prog-features">
+              <li>IELTS teaching methodology & strategies</li>
+              <li>Teknik memberikan feedback writing & speaking</li>
+              <li>Classroom management untuk kelas persiapan tes</li>
+              <li>Modul siap pakai untuk setiap skill IELTS</li>
+              <li>Dapat dilaksanakan 1 hari atau multi-sesi</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="prog-cta-box">
+        <div>
+          <h4>Tertarik dengan School Program?</h4>
+          <p>Hubungi kami untuk mendiskusikan program yang paling sesuai dengan kebutuhan siswa di sekolah Anda.</p>
+        </div>
+        <a href="https://wa.me/6287762013051?text=Halo%20kak%2C%20saya%20tertarik%20dengan%20School%20Program%20Tutory%20English.%20Bisa%20konsultasi%3F" target="_blank" rel="noopener">Hubungi Sekarang →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROSES KERJASAMA ============ -->
+<section class="process-section">
+  <div class="container">
+    <div class="sec-head">
+      <div class="eyebrow">Cara Kerja</div>
+      <h2>Proses Kerjasama yang Mudah</h2>
+      <p>Empat langkah sederhana untuk memulai program kemitraan bersama Tutory English.</p>
+    </div>
+    <div class="process-steps">
+      <div class="process-step">
+        <div class="ps-num">1</div>
+        <div class="ps-title">Konsultasi Awal</div>
+        <div class="ps-desc">Diskusi kebutuhan, tujuan, dan skala program yang diinginkan bersama tim Tutory English.</div>
+      </div>
+      <div class="process-step">
+        <div class="ps-num">2</div>
+        <div class="ps-title">Needs Analysis</div>
+        <div class="ps-desc">Kami melakukan analisis mendalam terhadap kebutuhan spesifik peserta dan organisasi Anda.</div>
+      </div>
+      <div class="process-step">
+        <div class="ps-num">3</div>
+        <div class="ps-title">Desain Program</div>
+        <div class="ps-desc">Kurikulum dan jadwal dirancang khusus dan disepakati bersama sebelum program dimulai.</div>
+      </div>
+      <div class="process-step">
+        <div class="ps-num">4</div>
+        <div class="ps-title">Pelaksanaan & Evaluasi</div>
+        <div class="ps-desc">Program berjalan dengan laporan progres berkala dan evaluasi di akhir program.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="partner-cta">
+  <div class="container">
+    <div class="partner-cta-band">
+      <h2>Siap Berkolaborasi Bersama Kami?</h2>
+      <p>Hubungi tim Tutory English sekarang dan dapatkan konsultasi gratis untuk merancang program kemitraan terbaik bagi institusi Anda.</p>
+      <div class="btns">
+        <a href="https://wa.me/6287762013051?text=Halo%20kak%2C%20saya%20tertarik%20dengan%20program%20partnership%20Tutory%20English.%20Bisa%20konsultasi%3F" target="_blank" rel="noopener" class="btn-cta-main">Mulai Konsultasi →</a>
+        <a href="mailto:ieltsclasstutory@gmail.com" class="btn-cta-ghost">Email Kami</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="brand"><img src="assets/img/tutory-logo-white.png" alt="Tutory English logo" style="height:34px;width:auto;">Tutory English</a>
+        <p>Platform belajar IELTS &amp; bahasa Inggris terpercaya. Official partner IDP IELTS untuk persiapan studi ke luar negeri.</p>
+        <div class="footer-social">
+          <a href="https://instagram.com/tutoryenglish" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+          <a href="https://wa.me/6287762013051" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="white"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2zm5.7 14.2c-.2.6-1.4 1.2-1.9 1.3-.5.1-1.1.2-3.2-.7-2.7-1.2-4.4-3.9-4.6-4.1-.1-.2-1.1-1.4-1.1-2.7s.7-1.9 1-2.2c.3-.3.6-.4.8-.4h.6c.2 0 .5 0 .7.5.3.6.9 2 1 2.2.1.2.1.4 0 .6-.3.6-.6.9-.9 1.2-.2.2-.3.5-.1.8.6 1.1 1.4 1.9 2.4 2.5.2.1.4.1.6-.1.3-.3.7-.8 1-1.1.2-.2.4-.3.7-.1.6.3 1.8.9 2.1 1.1.3.2.5.3.6.4.1.2.1.7-.1 1.3z"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="index.html#home">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="programs.html">Programs &amp; Pricing</a></li>
+          <li><a href="learning-tools.html">Learning Tools</a></li>
+          <li><a href="partnership.html">Partnership</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Programs</h4>
+        <ul>
+          <li><a href="programs.html#private">Private Class</a></li>
+          <li><a href="programs.html#group">Group Class</a></li>
+          <li><a href="partnership.html#programs">Corporate Program</a></li>
+          <li><a href="partnership.html#programs">School Program</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Kontak</h4>
+        <ul>
+          <li><a href="https://wa.me/6287762013051" target="_blank" rel="noopener">0877-6201-3051 (WhatsApp)</a></li>
+          <li><a href="https://instagram.com/tutoryenglish" target="_blank" rel="noopener">@tutoryenglish</a></li>
+          <li><a href="mailto:ieltsclasstutory@gmail.com">ieltsclasstutory@gmail.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; <span class="js-year"></span> Tutory English. All rights reserved.</span>
+      <span>Official Partner IDP IELTS</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+<script>
+function switchProgTab(id, btn) {
+  document.querySelectorAll('.prog-tab-content').forEach(el => el.classList.remove('active'));
+  document.querySelectorAll('.prog-tab-btn').forEach(el => el.classList.remove('active'));
+  document.getElementById('tab-' + id).classList.add('active');
+  btn.classList.add('active');
+}
+
+// Infinite carousel
+(function() {
+  const track = document.getElementById('collabTrack');
+
+  // Clone items for infinite effect
+  const items = Array.from(track.children);
+  items.forEach(item => track.appendChild(item.cloneNode(true)));
+  items.forEach(item => track.insertBefore(item.cloneNode(true), track.firstChild));
+
+  // Start at middle clone set
+  const itemW = 160 + 32; // width + gap
+  track.scrollLeft = items.length * itemW;
+
+  function scrollCollab(dir) {
+    track.scrollBy({ left: dir * (itemW), behavior: 'smooth' });
+  }
+  window.scrollCollab = scrollCollab;
+
+  // After smooth scroll, check if we need to jump (infinite loop)
+  track.addEventListener('scroll', () => {
+    const total = items.length * itemW;
+    if (track.scrollLeft >= total * 2) {
+      track.scrollLeft -= total;
+    } else if (track.scrollLeft <= 0) {
+      track.scrollLeft += total;
+    }
+  });
+
+  // Auto-play every 3s
+  let autoPlay = setInterval(() => scrollCollab(1), 3000);
+  track.addEventListener('mouseenter', () => clearInterval(autoPlay));
+  track.addEventListener('mouseleave', () => { autoPlay = setInterval(() => scrollCollab(1), 3000); });
+
+  // Drag-to-scroll
+  let isDown = false, startX, scrollLeft;
+  track.addEventListener('mousedown', e => {
+    isDown = true;
+    track.classList.add('grabbing');
+    startX = e.pageX - track.offsetLeft;
+    scrollLeft = track.scrollLeft;
+    clearInterval(autoPlay);
+  });
+  ['mouseleave','mouseup'].forEach(evt => track.addEventListener(evt, () => {
+    isDown = false; track.classList.remove('grabbing');
+  }));
+  track.addEventListener('mousemove', e => {
+    if (!isDown) return;
+    e.preventDefault();
+    track.scrollLeft = scrollLeft - (e.pageX - track.offsetLeft - startX);
+  });
+  let touchStartX, touchScrollLeft;
+  track.addEventListener('touchstart', e => {
+    touchStartX = e.touches[0].pageX;
+    touchScrollLeft = track.scrollLeft;
+    clearInterval(autoPlay);
+  });
+  track.addEventListener('touchmove', e => {
+    track.scrollLeft = touchScrollLeft - (e.touches[0].pageX - touchStartX);
+  });
+})();
+</script>
+</body>
+</html>
