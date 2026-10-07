@@ -191,85 +191,99 @@
   <div class="container">
     <div class="section-head">
       <span class="eyebrow">Jadwal Kelas</span>
-      <h2>Batch September–Oktober 2026</h2>
-      <p>Program dimulai 28 September 2026 · Senin, Rabu, Kamis</p>
+      <h2>Batch Oktober–November 2026</h2>
+      <p>Pilih jadwal yang paling sesuai untukmu — tersedia 2 batch berbeda.</p>
     </div>
 
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:900px;margin:0 auto;">
+    <div style="display:flex;justify-content:center;margin-bottom:16px;">
+      <span style="background:#eff6ff;color:var(--primary);border:1.5px solid #bfdbfe;border-radius:999px;padding:5px 16px;font-size:13px;font-weight:700;">👥 Maksimal 10 Orang</span>
+    </div>
 
-      <!-- Writing + Speaking -->
-      <div>
-        <div style="background:var(--primary);color:#fff;border-radius:12px 12px 0 0;padding:14px 20px;">
-          <div style="font-weight:800;font-size:15px;">✍️ Writing &amp; Speaking</div>
-          <div style="font-size:12px;opacity:.85;margin-top:2px;">15 Jam · Senin &amp; Kamis</div>
-        </div>
-        <div style="border:1.5px solid var(--line);border-top:none;border-radius:0 0 12px 12px;overflow:hidden;">
-          <table style="width:100%;border-collapse:collapse;font-size:13px;">
-            <thead style="background:var(--bg-soft);">
-              <tr>
-                <th style="padding:9px 12px;text-align:left;font-weight:700;color:var(--muted-2);">Tanggal</th>
-                <th style="padding:9px 12px;text-align:left;font-weight:700;color:var(--muted-2);">Waktu</th>
-                <th style="padding:9px 12px;text-align:left;font-weight:700;color:var(--muted-2);">Fokus</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr style="border-top:1px solid var(--line);"><td style="padding:8px 12px;">Sen, 28 Sep</td><td style="padding:8px 12px;">19.00–21.00</td><td style="padding:8px 12px;">Writing</td></tr>
-              <tr style="border-top:1px solid var(--line);background:#fafafa;"><td style="padding:8px 12px;">Kam, 1 Okt</td><td style="padding:8px 12px;">20.00–21.00</td><td style="padding:8px 12px;">Speaking</td></tr>
-              <tr style="border-top:1px solid var(--line);"><td style="padding:8px 12px;">Sen, 5 Okt</td><td style="padding:8px 12px;">19.00–21.00</td><td style="padding:8px 12px;">Writing</td></tr>
-              <tr style="border-top:1px solid var(--line);background:#fafafa;"><td style="padding:8px 12px;">Kam, 8 Okt</td><td style="padding:8px 12px;">20.00–21.00</td><td style="padding:8px 12px;">Speaking</td></tr>
-              <tr style="border-top:1px solid var(--line);"><td style="padding:8px 12px;">Sen, 12 Okt</td><td style="padding:8px 12px;">19.00–21.00</td><td style="padding:8px 12px;">Writing</td></tr>
-              <tr style="border-top:1px solid var(--line);background:#fafafa;"><td style="padding:8px 12px;">Kam, 15 Okt</td><td style="padding:8px 12px;">20.00–21.00</td><td style="padding:8px 12px;">Speaking</td></tr>
-              <tr style="border-top:1px solid var(--line);"><td style="padding:8px 12px;">Sen, 19 Okt</td><td style="padding:8px 12px;">19.00–21.00</td><td style="padding:8px 12px;">Writing</td></tr>
-              <tr style="border-top:1px solid var(--line);background:#fafafa;"><td style="padding:8px 12px;">Kam, 22 Okt</td><td style="padding:8px 12px;">20.00–21.00</td><td style="padding:8px 12px;">Speaking</td></tr>
-              <tr style="border-top:1px solid var(--line);"><td style="padding:8px 12px;">Sen, 26 Okt</td><td style="padding:8px 12px;">19.00–21.00</td><td style="padding:8px 12px;">Writing</td></tr>
-              <tr style="border-top:1px solid var(--line);background:#fafafa;"><td style="padding:8px 12px;">Kam, 29 Okt</td><td style="padding:8px 12px;">20.00–21.00</td><td style="padding:8px 12px;">Speaking</td></tr>
-            </tbody>
-          </table>
+    <!-- Batch Tabs -->
+    <div style="display:flex;justify-content:center;gap:10px;margin-bottom:32px;flex-wrap:wrap;">
+      <button onclick="switchBatch('batch1',this)" id="btn-batch1"
+        style="padding:10px 28px;border-radius:50px;border:2px solid var(--primary);background:var(--primary);color:#fff;font-size:14px;font-weight:700;cursor:pointer;">
+        📅 Batch Selasa–Kamis
+      </button>
+      <button onclick="switchBatch('batch2',this)" id="btn-batch2"
+        style="padding:10px 28px;border-radius:50px;border:2px solid #e2e8f0;background:#fff;color:#64748b;font-size:14px;font-weight:700;cursor:pointer;">
+        📅 Batch Jumat
+      </button>
+    </div>
+
+    <!-- BATCH 1: Selasa-Rabu-Kamis -->
+    <div id="batch1" style="max-width:700px;margin:0 auto;">
+      <div style="background:var(--primary);color:#fff;border-radius:12px 12px 0 0;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;">
+        <div>
+          <div style="font-weight:800;font-size:15px;">Selasa, Rabu &amp; Kamis</div>
+          <div style="font-size:12px;opacity:.85;margin-top:2px;">27 Oktober – 26 November 2026 · 15 Sesi · 19.00–20.00</div>
         </div>
       </div>
-
-      <!-- Grammar -->
-      <div>
-        <div style="background:#7c3aed;color:#fff;border-radius:12px 12px 0 0;padding:14px 20px;">
-          <div style="font-weight:800;font-size:15px;">📖 Grammar</div>
-          <div style="font-size:12px;opacity:.85;margin-top:2px;">7 Jam · Rabu</div>
-        </div>
-        <div style="border:1.5px solid var(--line);border-top:none;border-radius:0 0 12px 12px;overflow:hidden;">
-          <table style="width:100%;border-collapse:collapse;font-size:13px;">
-            <thead style="background:var(--bg-soft);">
-              <tr>
-                <th style="padding:9px 12px;text-align:left;font-weight:700;color:var(--muted-2);">Tanggal</th>
-                <th style="padding:9px 12px;text-align:left;font-weight:700;color:var(--muted-2);">Waktu</th>
-                <th style="padding:9px 12px;text-align:left;font-weight:700;color:var(--muted-2);">Fokus</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr style="border-top:1px solid var(--line);"><td style="padding:8px 12px;">Rab, 30 Sep</td><td style="padding:8px 12px;">19.00–21.00</td><td style="padding:8px 12px;">Grammar</td></tr>
-              <tr style="border-top:1px solid var(--line);background:#fafafa;"><td style="padding:8px 12px;">Rab, 7 Okt</td><td style="padding:8px 12px;">19.00–21.00</td><td style="padding:8px 12px;">Grammar</td></tr>
-              <tr style="border-top:1px solid var(--line);"><td style="padding:8px 12px;">Rab, 14 Okt</td><td style="padding:8px 12px;">19.00–21.00</td><td style="padding:8px 12px;">Grammar</td></tr>
-              <tr style="border-top:1px solid var(--line);background:#fafafa;"><td style="padding:8px 12px;">Rab, 21 Okt</td><td style="padding:8px 12px;">19.00–20.00</td><td style="padding:8px 12px;">Grammar</td></tr>
-            </tbody>
-          </table>
-        </div>
+      <div style="border:1.5px solid var(--line);border-top:none;border-radius:0 0 12px 12px;overflow:hidden;">
+        <table style="width:100%;border-collapse:collapse;font-size:13.5px;">
+          <thead style="background:var(--bg-soft);">
+            <tr>
+              <th style="padding:9px 14px;text-align:left;font-weight:700;color:var(--muted-2);">Sesi</th>
+              <th style="padding:9px 14px;text-align:left;font-weight:700;color:var(--muted-2);">Tanggal</th>
+              <th style="padding:9px 14px;text-align:left;font-weight:700;color:var(--muted-2);">Hari</th>
+              <th style="padding:9px 14px;text-align:left;font-weight:700;color:var(--muted-2);">Waktu</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-top:1px solid var(--line);"><td style="padding:8px 14px;color:var(--muted);">Sesi 1</td><td style="padding:8px 14px;">27 Okt 2026</td><td style="padding:8px 14px;">Selasa</td><td style="padding:8px 14px;">19.00–20.00</td></tr>
+            <tr style="border-top:1px solid var(--line);background:#fafafa;"><td style="padding:8px 14px;color:var(--muted);">Sesi 2</td><td style="padding:8px 14px;">28 Okt 2026</td><td style="padding:8px 14px;">Rabu</td><td style="padding:8px 14px;">19.00–20.00</td></tr>
+            <tr style="border-top:1px solid var(--line);"><td style="padding:8px 14px;color:var(--muted);">Sesi 3</td><td style="padding:8px 14px;">29 Okt 2026</td><td style="padding:8px 14px;">Kamis</td><td style="padding:8px 14px;">19.00–20.00</td></tr>
+            <tr style="border-top:1px solid var(--line);background:#fafafa;"><td style="padding:8px 14px;color:var(--muted);">Sesi 4</td><td style="padding:8px 14px;">3 Nov 2026</td><td style="padding:8px 14px;">Selasa</td><td style="padding:8px 14px;">19.00–20.00</td></tr>
+            <tr style="border-top:1px solid var(--line);"><td style="padding:8px 14px;color:var(--muted);">Sesi 5</td><td style="padding:8px 14px;">4 Nov 2026</td><td style="padding:8px 14px;">Rabu</td><td style="padding:8px 14px;">19.00–20.00</td></tr>
+            <tr style="border-top:1px solid var(--line);background:#fafafa;"><td style="padding:8px 14px;color:var(--muted);">Sesi 6</td><td style="padding:8px 14px;">5 Nov 2026</td><td style="padding:8px 14px;">Kamis</td><td style="padding:8px 14px;">19.00–20.00</td></tr>
+            <tr style="border-top:1px solid var(--line);"><td style="padding:8px 14px;color:var(--muted);">Sesi 7</td><td style="padding:8px 14px;">10 Nov 2026</td><td style="padding:8px 14px;">Selasa</td><td style="padding:8px 14px;">19.00–20.00</td></tr>
+            <tr style="border-top:1px solid var(--line);background:#fafafa;"><td style="padding:8px 14px;color:var(--muted);">Sesi 8</td><td style="padding:8px 14px;">11 Nov 2026</td><td style="padding:8px 14px;">Rabu</td><td style="padding:8px 14px;">19.00–20.00</td></tr>
+            <tr style="border-top:1px solid var(--line);"><td style="padding:8px 14px;color:var(--muted);">Sesi 9</td><td style="padding:8px 14px;">12 Nov 2026</td><td style="padding:8px 14px;">Kamis</td><td style="padding:8px 14px;">19.00–20.00</td></tr>
+            <tr style="border-top:1px solid var(--line);background:#fafafa;"><td style="padding:8px 14px;color:var(--muted);">Sesi 10</td><td style="padding:8px 14px;">17 Nov 2026</td><td style="padding:8px 14px;">Selasa</td><td style="padding:8px 14px;">19.00–20.00</td></tr>
+            <tr style="border-top:1px solid var(--line);"><td style="padding:8px 14px;color:var(--muted);">Sesi 11</td><td style="padding:8px 14px;">18 Nov 2026</td><td style="padding:8px 14px;">Rabu</td><td style="padding:8px 14px;">19.00–20.00</td></tr>
+            <tr style="border-top:1px solid var(--line);background:#fafafa;"><td style="padding:8px 14px;color:var(--muted);">Sesi 12</td><td style="padding:8px 14px;">19 Nov 2026</td><td style="padding:8px 14px;">Kamis</td><td style="padding:8px 14px;">19.00–20.00</td></tr>
+            <tr style="border-top:1px solid var(--line);"><td style="padding:8px 14px;color:var(--muted);">Sesi 13</td><td style="padding:8px 14px;">24 Nov 2026</td><td style="padding:8px 14px;">Selasa</td><td style="padding:8px 14px;">19.00–20.00</td></tr>
+            <tr style="border-top:1px solid var(--line);background:#fafafa;"><td style="padding:8px 14px;color:var(--muted);">Sesi 14</td><td style="padding:8px 14px;">25 Nov 2026</td><td style="padding:8px 14px;">Rabu</td><td style="padding:8px 14px;">19.00–20.00</td></tr>
+            <tr style="border-top:1px solid var(--line);"><td style="padding:8px 14px;color:var(--muted);">Sesi 15</td><td style="padding:8px 14px;">26 Nov 2026</td><td style="padding:8px 14px;">Kamis</td><td style="padding:8px 14px;">19.00–20.00</td></tr>
+          </tbody>
+        </table>
       </div>
     </div>
 
-    <!-- Pricing tiers -->
-    <div style="max-width:900px;margin:32px auto 0;">
-      <div style="background:var(--bg-soft);border:1.5px solid var(--line);border-radius:16px;padding:24px 28px;">
-        <div style="font-weight:800;font-size:15px;color:var(--ink);margin-bottom:16px;">🏷️ Harga Pendaftaran</div>
-        <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:16px;text-align:center;">
-          <div style="background:#fff;border:1.5px solid var(--primary);border-radius:12px;padding:16px;">
-            <div style="font-size:11px;font-weight:700;color:var(--primary);text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px;">🔥 Promo 9.9</div>
-            <div style="font-size:22px;font-weight:800;color:var(--ink);">Rp 639.000</div>
-            <div style="font-size:12px;color:var(--muted);margin-top:4px;">3 – 10 September</div>
-          </div>
-          <div style="background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:16px;">
-            <div style="font-size:11px;font-weight:700;color:var(--muted-2);text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px;">Harga Normal</div>
-            <div style="font-size:22px;font-weight:800;color:var(--ink);">Rp 719.000</div>
-          </div>
-        </div>
-        <p style="font-size:12px;color:var(--muted);margin:14px 0 0;text-align:center;">Promo 9.9 berlaku 3–10 September · Slot terbatas</p>
+    <!-- BATCH 2: Jumat -->
+    <div id="batch2" style="display:none;max-width:700px;margin:0 auto;">
+      <div style="background:#7c3aed;color:#fff;border-radius:12px 12px 0 0;padding:14px 20px;">
+        <div style="font-weight:800;font-size:15px;">Jumat</div>
+        <div style="font-size:12px;opacity:.85;margin-top:2px;">30 Oktober – 27 November 2026 · 5 Sesi · 19.00–20.30</div>
+      </div>
+      <div style="border:1.5px solid var(--line);border-top:none;border-radius:0 0 12px 12px;overflow:hidden;">
+        <table style="width:100%;border-collapse:collapse;font-size:13.5px;">
+          <thead style="background:var(--bg-soft);">
+            <tr>
+              <th style="padding:9px 14px;text-align:left;font-weight:700;color:var(--muted-2);">Sesi</th>
+              <th style="padding:9px 14px;text-align:left;font-weight:700;color:var(--muted-2);">Tanggal</th>
+              <th style="padding:9px 14px;text-align:left;font-weight:700;color:var(--muted-2);">Hari</th>
+              <th style="padding:9px 14px;text-align:left;font-weight:700;color:var(--muted-2);">Waktu</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-top:1px solid var(--line);"><td style="padding:8px 14px;color:var(--muted);">Sesi 1</td><td style="padding:8px 14px;">30 Okt 2026</td><td style="padding:8px 14px;">Jumat</td><td style="padding:8px 14px;">19.00–20.30</td></tr>
+            <tr style="border-top:1px solid var(--line);background:#fafafa;"><td style="padding:8px 14px;color:var(--muted);">Sesi 2</td><td style="padding:8px 14px;">6 Nov 2026</td><td style="padding:8px 14px;">Jumat</td><td style="padding:8px 14px;">19.00–20.30</td></tr>
+            <tr style="border-top:1px solid var(--line);"><td style="padding:8px 14px;color:var(--muted);">Sesi 3</td><td style="padding:8px 14px;">13 Nov 2026</td><td style="padding:8px 14px;">Jumat</td><td style="padding:8px 14px;">19.00–20.30</td></tr>
+            <tr style="border-top:1px solid var(--line);background:#fafafa;"><td style="padding:8px 14px;color:var(--muted);">Sesi 4</td><td style="padding:8px 14px;">20 Nov 2026</td><td style="padding:8px 14px;">Jumat</td><td style="padding:8px 14px;">19.00–20.30</td></tr>
+            <tr style="border-top:1px solid var(--line);"><td style="padding:8px 14px;color:var(--muted);">Sesi 5</td><td style="padding:8px 14px;">27 Nov 2026</td><td style="padding:8px 14px;">Jumat</td><td style="padding:8px 14px;">19.00–20.00</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Harga -->
+    <div style="max-width:700px;margin:32px auto 0;">
+      <div style="background:var(--bg-soft);border:1.5px solid var(--line);border-radius:16px;padding:24px 28px;text-align:center;">
+        <div style="font-size:11px;font-weight:700;color:var(--muted-2);text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px;">Harga</div>
+        <div style="font-size:13px;text-decoration:line-through;color:var(--muted);margin-bottom:4px;">Rp 927.000</div>
+        <div style="font-size:30px;font-weight:800;color:var(--primary);">Rp 649.000</div>
+        <div style="font-size:12px;color:var(--muted);margin-top:6px;">Berlaku untuk semua batch</div>
       </div>
     </div>
 
@@ -278,6 +292,23 @@
     </div>
   </div>
 </section>
+
+<script>
+function switchBatch(id, btn) {
+  document.getElementById('batch1').style.display = 'none';
+  document.getElementById('batch2').style.display = 'none';
+  document.getElementById('btn-batch1').style.background = '#fff';
+  document.getElementById('btn-batch1').style.color = '#64748b';
+  document.getElementById('btn-batch1').style.borderColor = '#e2e8f0';
+  document.getElementById('btn-batch2').style.background = '#fff';
+  document.getElementById('btn-batch2').style.color = '#64748b';
+  document.getElementById('btn-batch2').style.borderColor = '#e2e8f0';
+  document.getElementById(id).style.display = 'block';
+  btn.style.background = 'var(--primary)';
+  btn.style.color = '#fff';
+  btn.style.borderColor = 'var(--primary)';
+}
+</script>
 
 <!-- ============ WHO IS THIS FOR ============ -->
 <section>
