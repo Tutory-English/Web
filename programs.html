@@ -326,9 +326,93 @@
     .feat-grid { grid-template-columns: 1fr; }
     .prog-item-right { flex-direction: column; align-items: flex-end; gap: 6px; }
   }
+/* ===== POPUP ===== */
+.popup-overlay{position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:9999;display:none;align-items:center;justify-content:center;padding:16px;overflow-y:auto}
+.popup-box{background:linear-gradient(135deg,#1a3ccc 0%,#2f61f6 60%,#4a7fff 100%);border-radius:20px;max-width:600px;width:100%;position:relative;box-shadow:0 24px 80px rgba(0,0,0,.5);overflow:hidden}
+.popup-close{position:absolute;top:14px;right:14px;width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.2);border:none;cursor:pointer;color:#fff;font-size:20px;display:flex;align-items:center;justify-content:center;transition:background .2s;line-height:1;font-weight:300;z-index:2}
+.popup-close:hover{background:rgba(255,255,255,.35)}
+.popup-inner{padding:28px 28px 0}
+.popup-brand{font-size:13px;font-weight:700;color:rgba(255,255,255,.85);margin-bottom:10px;letter-spacing:.3px}
+.popup-heading{font-size:clamp(26px,5vw,38px);font-weight:800;color:#fff;line-height:1.1;margin-bottom:10px}
+.popup-heading span{color:#a5f3fc}
+.popup-desc{font-size:13.5px;color:rgba(255,255,255,.8);line-height:1.6;margin-bottom:16px;max-width:300px}
+.popup-meta{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:20px}
+.popup-meta-item{display:flex;align-items:center;gap:6px;font-size:12.5px;color:rgba(255,255,255,.85);font-weight:500}
+.popup-speakers{display:flex;gap:10px;margin-bottom:0}
+.popup-speaker{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:14px;padding:12px 14px;flex:1;backdrop-filter:blur(4px)}
+.popup-speaker.highlight{background:#fff3cd;border-color:#fde68a}
+.popup-speaker-name{font-size:14px;font-weight:800;color:#fff;margin-bottom:4px}
+.popup-speaker.highlight .popup-speaker-name{color:#1e3a8a}
+.popup-speaker-badge{display:inline-block;background:rgba(255,255,255,.2);color:#fff;border-radius:999px;padding:2px 10px;font-size:11px;font-weight:600;margin-bottom:6px}
+.popup-speaker.highlight .popup-speaker-badge{background:#fde68a;color:#92400e}
+.popup-speaker-desc{font-size:11.5px;color:rgba(255,255,255,.75);line-height:1.5}
+.popup-speaker.highlight .popup-speaker-desc{color:#1e3a8a}
+.popup-sessions{display:grid;grid-template-columns:repeat(3,1fr);gap:0;background:rgba(255,255,255,.08);border-top:1px solid rgba(255,255,255,.15);margin-top:20px}
+.popup-session{padding:14px 16px;border-right:1px solid rgba(255,255,255,.12)}
+.popup-session:last-child{border-right:none}
+.popup-session-num{display:inline-block;background:rgba(255,255,255,.15);color:#a5f3fc;border-radius:999px;padding:2px 9px;font-size:10px;font-weight:700;margin-bottom:6px}
+.popup-session-num.s2{background:#fde68a22;color:#fde68a}
+.popup-session-num.s3{background:#a5f3fc22;color:#a5f3fc}
+.popup-session-title{font-size:13px;font-weight:800;color:#fff;margin-bottom:4px}
+.popup-session-desc{font-size:11px;color:rgba(255,255,255,.7);line-height:1.5}
+.popup-footer{padding:16px 28px 20px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.popup-register-btn{background:#fff;color:#1a3ccc;border:none;border-radius:50px;padding:13px 28px;font-size:14.5px;font-weight:800;cursor:pointer;display:flex;align-items:center;gap:8px;text-decoration:none;transition:all .2s;font-family:inherit}
+.popup-register-btn:hover{background:#dbeafe;color:#1e3a8a}
+.popup-footer-note{font-size:12px;color:rgba(255,255,255,.7);line-height:1.5;flex:1}
+@media(max-width:540px){.popup-speakers{flex-direction:column}.popup-sessions{grid-template-columns:1fr}.popup-session{border-right:none;border-bottom:1px solid rgba(255,255,255,.12)}.popup-session:last-child{border-bottom:none}.popup-desc{max-width:100%}.popup-footer{flex-direction:column;align-items:flex-start}}
 </style>
 </head>
 <body>
+
+<!-- ============ POPUP: IELTS & LPDP Talks ============ -->
+<div class="popup-overlay" id="tutoryPopup" role="dialog" aria-modal="true" aria-label="IELTS & LPDP Talks">
+  <div class="popup-box">
+    <button class="popup-close" id="popupCloseBtn" aria-label="Tutup">✕</button>
+    <div class="popup-inner">
+      <div class="popup-brand">Tutory</div>
+      <div class="popup-heading">IELTS &amp; <span>LPDP Talks</span></div>
+      <div class="popup-desc">Get a clear roadmap for your IELTS preparation and LPDP application in one session.</div>
+      <div class="popup-meta">
+        <div class="popup-meta-item">📅 Sabtu, 24 Oktober 2026</div>
+        <div class="popup-meta-item">🕒 15.30 – 17.30 WIB</div>
+        <div class="popup-meta-item">🎥 Online via Zoom</div>
+      </div>
+      <div class="popup-speakers">
+        <div class="popup-speaker">
+          <div class="popup-speaker-name">Ms. Nala</div>
+          <div class="popup-speaker-badge">Tutory English Mentor</div>
+          <div class="popup-speaker-desc">Mentored 20+ students who achieved Band 7.5.</div>
+        </div>
+        <div class="popup-speaker highlight">
+          <div class="popup-speaker-name">Mr. Nabil</div>
+          <div class="popup-speaker-badge">Tutory English Mentor</div>
+          <div class="popup-speaker-desc">LPDP Full Scholarship (2024–2026)<br>Master of Environment — University of Melbourne</div>
+        </div>
+      </div>
+    </div>
+    <div class="popup-sessions">
+      <div class="popup-session">
+        <div class="popup-session-num">Session 1</div>
+        <div class="popup-session-title">IELTS</div>
+        <div class="popup-session-desc">Understand the format, learn strategies, and see real examples.</div>
+      </div>
+      <div class="popup-session">
+        <div class="popup-session-num s2">Session 2</div>
+        <div class="popup-session-title">LPDP</div>
+        <div class="popup-session-desc">Learn about the scholarship overview, selection process, and how to write a strong essay.</div>
+      </div>
+      <div class="popup-session">
+        <div class="popup-session-num s3">Session 3</div>
+        <div class="popup-session-title">Q&amp;A</div>
+        <div class="popup-session-desc">Ask your questions and get practical answers about IELTS and LPDP.</div>
+      </div>
+    </div>
+    <div class="popup-footer">
+      <a class="popup-register-btn" href="https://forms.gle/8zxqDLSPWBJMfsvC6" target="_blank" rel="noopener">Register Now →</a>
+      <div class="popup-footer-note">Open for students, professionals, and anyone who is planning to study abroad.</div>
+    </div>
+  </div>
+</div>
 
 <!-- ============ HEADER ============ -->
 <header class="site-header">
@@ -537,7 +621,7 @@
         <!-- Semi Private -->
         <div class="price-card">
           <div class="price-card-header">
-            <span class="price-card-badge">Semi Private Class &nbsp;<span style="background:#fef3c7;color:#92400e;border-radius:999px;padding:2px 8px;font-size:10px;">Coming Soon</span></span>
+            <span class="price-card-badge">Semi Private Class</span>
             <span class="price-card-price-original">Rp 1.364.000</span>
             <div class="price-card-price-main">Rp 955.000</div>
             <div class="price-card-meta">20 Jam Sesi · Min. 3 siswa</div>
@@ -1087,6 +1171,17 @@
       if (!isOpen) item.classList.add('open');
     });
   });
+
+  // Popup
+  (function(){
+    var popup = document.getElementById('tutoryPopup');
+    var closeBtn = document.getElementById('popupCloseBtn');
+    if(!popup) return;
+    setTimeout(function(){ popup.style.display='flex'; }, 1200);
+    function close(){ popup.style.display='none'; }
+    closeBtn.addEventListener('click', close);
+    popup.addEventListener('click', function(e){ if(e.target===popup) close(); });
+  })();
 </script>
 </body>
 </html>
